@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/maintileset.tres" type="TileSet" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://assets/music/drums.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/levels/game_over.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/levels/level3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.288889, 0.922222 )
@@ -24,7 +25,7 @@ extents = Vector2( 288.5, 13.25 )
 script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
+layer = -128
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
@@ -33,6 +34,14 @@ margin_top = -44.0
 margin_right = 1952.0
 margin_bottom = 1070.0
 texture = ExtResource( 4 )
+
+[node name="counter" parent="CanvasLayer" instance=ExtResource( 10 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -147.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 117.0
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -1, -2 )
@@ -81,19 +90,34 @@ attenuation = 1.36604
 position = Vector2( 1161, 723 )
 
 [node name="coin2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3697, 451 )
+position = Vector2( 6233, 115 )
 
 [node name="coin3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6351, 705 )
+position = Vector2( 4649, 595 )
 
 [node name="coin4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6497, 705 )
+position = Vector2( 5481, 451 )
 
 [node name="coin5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6662, 705 )
+position = Vector2( 3621.86, 467.509 )
 
 [node name="coin6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6833, 705 )
+position = Vector2( 2751.24, 429.912 )
+
+[node name="coin7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 6647.24, 613.912 )
+
+[node name="coin8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 7695.24, 117.912 )
+
+[node name="coin9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 10610.5, 1303.25 )
+
+[node name="coin10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 9969.8, 416.917 )
+
+[node name="coin11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 12105.5, 747.957 )
 
 [node name="death_area" type="Area2D" parent="."]
 position = Vector2( 4681, 990 )
@@ -125,5 +149,16 @@ shape = SubResource( 6 )
 position = Vector2( 12512, 400 )
 next_scene = ExtResource( 9 )
 
+[connection signal="coin_collected" from="coin" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin2" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin3" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin4" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin5" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin6" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin7" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin8" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin9" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin10" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coin11" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
 [connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="death_area2" to="." method="_on_death_area_body_entered"]

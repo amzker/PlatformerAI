@@ -66,3 +66,4 @@ anims/fade_in = ExtResource( 2 )
 stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_portal_body_entered"]
+[connection signal="finished" from="won" to="." method="_on_won_finished"]

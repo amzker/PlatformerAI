@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/images/coin.png" type="Texture" id=2]
+[ext_resource path="res://src/objects/counter.gd" type="Script" id=3]
+
+[node name="counter" type="Label"]
+margin_left = 91.3636
+margin_top = 70.6353
+margin_right = 188.364
+margin_bottom = 187.635
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+valign = 1
+script = ExtResource( 3 )
+
+[node name="CoinCount" type="TextureRect" parent="."]
+margin_left = -77.5449
+margin_top = 27.8921
+margin_right = -8.54486
+margin_bottom = 95.8921
+rect_scale = Vector2( 0.93483, 0.92132 )
+texture = ExtResource( 2 )
