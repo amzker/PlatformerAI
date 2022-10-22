@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/images/background.png" type="Texture" id=1]
-[ext_resource path="res://assets/images/bumper.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/font_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/images/font_default.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/music/loss.wav" type="AudioStream" id=4]
 [ext_resource path="res://src/levels/game_over.gd" type="Script" id=5]
@@ -22,17 +22,43 @@ custom_fonts/normal_font = ExtResource( 3 )
 meta_underlined = false
 text = "GAME OVER"
 
-[node name="replay" type="Button" parent="."]
+[node name="l1" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 612.0
-margin_top = 471.0
-margin_right = 732.0
-margin_bottom = 582.0
-icon = ExtResource( 2 )
-flat = true
+margin_left = 161.787
+margin_top = 461.009
+margin_right = 378.787
+margin_bottom = 572.009
+custom_fonts/font = ExtResource( 2 )
+text = "LEVEL 1"
+expand_icon = true
+
+[node name="l2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 452.782
+margin_top = 455.67
+margin_right = 669.782
+margin_bottom = 566.67
+custom_fonts/font = ExtResource( 2 )
+text = "LEVEL 2"
+expand_icon = true
+
+[node name="l3" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 802.51
+margin_top = 453.0
+margin_right = 1019.51
+margin_bottom = 564.0
+custom_fonts/font = ExtResource( 2 )
+text = "LEVEL 3"
 expand_icon = true
 
 [node name="loss" type="AudioStreamPlayer2D" parent="."]
@@ -45,6 +71,11 @@ layer = -1
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.66968
+margin_right = 898.67
+margin_bottom = 480.0
 texture = ExtResource( 1 )
 
-[connection signal="pressed" from="replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="l1" to="." method="_on_l1_pressed"]
+[connection signal="pressed" from="l2" to="." method="_on_l2_pressed"]
+[connection signal="pressed" from="l3" to="." method="_on_l3_pressed"]

@@ -37,6 +37,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/z_index = 0
 
 [node name="testlv" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

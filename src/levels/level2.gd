@@ -10,5 +10,5 @@ func _on_death_area_body_entered(body):
 
 func _physics_process(delta):
 		if Input.is_action_just_pressed("retry"):
-			get_tree().change_scene("res://src/levels/testlv.tscn")
+			get_tree().change_scene("res://src/levels/level2.tscn")
 		
