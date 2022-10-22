@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/images/coin.png" type="Texture" id=1]
+[ext_resource path="res://src/objects/objectsbounce.tres" type="Animation" id=2]
+[ext_resource path="res://src/objects/fade_out.tres" type="Animation" id=3]
+[ext_resource path="res://src/objects/coin.gd" type="Script" id=4]
+[ext_resource path="res://assets/music/coin.wav" type="AudioStream" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 34.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Coin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="coin" type="Area2D"]
+collision_layer = 0
+script = ExtResource( 4 )
+
+[node name="Coin" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_rect = Rect2( 158.25, 11.25, 61, 84 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bounce"
+anims/RESET = SubResource( 2 )
+anims/bounce = ExtResource( 2 )
+anims/fade_out = ExtResource( 3 )
+
+[node name="gotcoin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_on_coin_body_entered"]
