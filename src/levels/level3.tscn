@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=2]
@@ -8,24 +8,52 @@
 [ext_resource path="res://src/levels/maintileset.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/images/background.png" type="Texture" id=7]
 [ext_resource path="res://src/levels/level3.gd" type="Script" id=8]
+[ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=10]
 
 [node name="level3" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 layer = -100
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="UI"]
+modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 7 )
 
-[node name="counter" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="counter" parent="UI" instance=ExtResource( 10 )]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -48.5
 margin_top = 0.0
 margin_right = 48.5
 margin_bottom = 117.0
+
+[node name="Virtual joystick" parent="UI" instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -235.749
+margin_top = -203.575
+margin_right = -35.7485
+margin_bottom = -3.57483
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
+
+[node name="Virtual joystick2" parent="UI" instance=ExtResource( 9 )]
+margin_left = 168.018
+margin_top = -203.575
+margin_right = 368.018
+margin_bottom = -3.57483
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -126,19 +154,3 @@ position = Vector2( 4901.26, 1208.56 )
 [node name="portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 6388.2, 452.75 )
 next_scene = ExtResource( 3 )
-
-[connection signal="coin_collected" from="coin" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin2" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin3" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin4" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin5" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin6" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin7" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin8" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin9" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin10" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin11" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin12" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin13" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin14" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin15" to="CanvasLayer/counter" method="_on_coin_coin_collected"]

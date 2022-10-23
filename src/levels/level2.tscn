@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/maintileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/images/background.png" type="Texture" id=4]
 [ext_resource path="res://src/levels/level2.gd" type="Script" id=5]
+[ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/level3.tscn" type="PackedScene" id=9]
@@ -23,24 +24,46 @@ extents = Vector2( 288.5, 13.25 )
 [node name="testlv" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -128
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -100
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="UI"]
 modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
-margin_left = -8.0
-margin_top = -44.0
-margin_right = 1952.0
-margin_bottom = 1070.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 4 )
 
-[node name="counter" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="counter" parent="UI" instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.5
+margin_top = 0.0
+margin_right = 48.5
+margin_bottom = 117.0
+
+[node name="Virtual joystick" parent="UI" instance=ExtResource( 6 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -147.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 117.0
+margin_left = -328.434
+margin_top = -214.271
+margin_right = -128.434
+margin_bottom = -14.2705
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
+
+[node name="Virtual joystick2" parent="UI" instance=ExtResource( 6 )]
+margin_left = 152.219
+margin_top = -209.514
+margin_right = 352.219
+margin_bottom = -9.51367
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -1, -2 )
@@ -176,22 +199,6 @@ visible = false
 position = Vector2( 12512, 400 )
 next_scene = ExtResource( 9 )
 
-[connection signal="coin_collected" from="coin" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin2" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin3" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin4" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin5" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin6" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin7" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin8" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin9" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin12" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin13" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin14" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin15" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin16" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin10" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="coin11" to="CanvasLayer/counter" method="_on_coin_coin_collected"]
 [connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="death_area2" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="death_area3" to="." method="_on_death_area_body_entered"]
