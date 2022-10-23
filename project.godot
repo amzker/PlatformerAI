@@ -24,6 +24,10 @@ config/name="Time-pass"
 run/main_scene="res://src/levels/testlv.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Background_Music="*res://assets/music/background music.tscn"
+
 [input]
 
 move_left={

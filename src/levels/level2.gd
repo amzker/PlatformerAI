@@ -1,8 +1,5 @@
 extends Node2D
 
-func _ready():
-	$start.play()
-
 
 func _on_death_area_body_entered(body):
 	get_tree().change_scene("res://src/levels/game_over.tscn")

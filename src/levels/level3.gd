@@ -1,7 +1,5 @@
 extends Node2D
 
-func _ready():
-	$start.play()
 
 
 func _physics_process(delta):

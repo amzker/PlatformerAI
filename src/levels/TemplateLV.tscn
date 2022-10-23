@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/background.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/maintileset.tres" type="TileSet" id=7]
-[ext_resource path="res://assets/music/drums.wav" type="AudioStream" id=8]
 [ext_resource path="res://src/levels/TemplateLV.gd" type="Script" id=9]
 
 [node name="TemplateLV" type="Node2D"]
@@ -47,10 +46,5 @@ tile_data = PoolIntArray( 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65
 
 [node name="portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1807.59, 480.44 )
-
-[node name="start" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
-autoplay = true
-attenuation = 1.36604
 
 [connection signal="coin_collected" from="coin" to="CanvasLayer/counter" method="_on_coin_coin_collected"]

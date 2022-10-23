@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/tileset.png" type="Texture" id=2]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/images/background.png" type="Texture" id=4]
 [ext_resource path="res://src/levels/testlv.gd" type="Script" id=5]
-[ext_resource path="res://assets/music/drums.wav" type="AudioStream" id=6]
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/level2.tscn" type="PackedScene" id=9]
@@ -112,11 +111,6 @@ position = Vector2( 14495, 146 )
 
 [node name="enemy15" parent="." instance=ExtResource( 3 )]
 position = Vector2( 15409, -138 )
-
-[node name="start" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 6 )
-autoplay = true
-attenuation = 1.36604
 
 [node name="coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1180, 425 )
