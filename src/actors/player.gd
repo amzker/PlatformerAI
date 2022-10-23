@@ -29,12 +29,23 @@ func _on_enhit_body_entered(body)-> void:
 	get_tree().change_scene("res://src/levels/game_over.tscn")
 
 func _physics_process(delta: float)-> void:
+	for i in get_slide_count():
+		var loc = get_slide_collision(i)
+		if loc.collider.name == "speedtile":
+			speed.x += 2
+		elif loc.collider.name == "slowspeed":
+			speed.x = speed.x - 5
+		elif loc.collider.name == "invertedtile":
+			speed.x *= -1
+		else:
+			pass
 	var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
 	var direction: = get_direction()
 	_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
 	
+
 
 
 

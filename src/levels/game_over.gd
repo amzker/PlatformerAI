@@ -15,6 +15,10 @@ func _on_l2_pressed():
 func _on_l3_pressed():
 	get_tree().change_scene("res://src/levels/level3.tscn")
 	Background_Music.play()
+	
+func _on_l4_pressed():
+	get_tree().change_scene("res://src/levels/level4.tscn")
+	Background_Music.play()
 
 func _physics_process(delta):
 		if Input.is_action_just_pressed("1"):
@@ -23,4 +27,8 @@ func _physics_process(delta):
 			_on_l2_pressed()
 		elif Input.is_action_just_pressed("3"):
 			_on_l3_pressed()
+		elif Input.is_action_just_pressed("4"):
+			_on_l4_pressed()
+
+
 
