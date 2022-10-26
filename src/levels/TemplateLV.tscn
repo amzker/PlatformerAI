@@ -6,7 +6,7 @@
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/levels/maintileset.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=7]
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/TemplateLV.gd" type="Script" id=9]
 

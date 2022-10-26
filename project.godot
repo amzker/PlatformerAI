@@ -14,6 +14,51 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/actors/actor.gd"
 }, {
+"base": "Reference",
+"class": "Agent",
+"language": "GDScript",
+"path": "res://NEAT_code/agent.gd"
+}, {
+"base": "Node",
+"class": "GeneticAlgorithm",
+"language": "GDScript",
+"path": "res://NEAT_code/ga.gd"
+}, {
+"base": "Reference",
+"class": "Genome",
+"language": "GDScript",
+"path": "res://NEAT_code/genome.gd"
+}, {
+"base": "Node2D",
+"class": "Highlighter",
+"language": "GDScript",
+"path": "res://NEAT_usability/gui/highlighter.gd"
+}, {
+"base": "Reference",
+"class": "Link",
+"language": "GDScript",
+"path": "res://NEAT_code/links.gd"
+}, {
+"base": "CanvasLayer",
+"class": "NeatGUI",
+"language": "GDScript",
+"path": "res://NEAT_usability/gui/NeatGUI.gd"
+}, {
+"base": "Reference",
+"class": "NeuralNet",
+"language": "GDScript",
+"path": "res://NEAT_code/neuralnet.gd"
+}, {
+"base": "Reference",
+"class": "Neuron",
+"language": "GDScript",
+"path": "res://NEAT_code/neurons.gd"
+}, {
+"base": "Reference",
+"class": "Species",
+"language": "GDScript",
+"path": "res://NEAT_code/species.gd"
+}, {
 "base": "Control",
 "class": "VirtualJoystick",
 "language": "GDScript",
@@ -21,18 +66,31 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Agent": "",
+"GeneticAlgorithm": "",
+"Genome": "",
+"Highlighter": "",
+"Link": "",
+"NeatGUI": "",
+"NeuralNet": "",
+"Neuron": "",
+"Species": "",
 "VirtualJoystick": ""
 }
 
 [application]
 
 config/name="Time-pass"
-run/main_scene="res://src/levels/testlv.tscn"
+run/main_scene="res://src/levels/level1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Background_Music="*res://assets/music/background music.tscn"
+Params="*res://NEAT_code/params.gd"
+Utils="*res://NEAT_code/utils.gd"
+Innovations="*res://NEAT_code/innovations.gd"
+Variables="*res://src/UI/variables.gd"
 
 [display]
 

@@ -1,0 +1,90 @@
+{
+  "network_name": "lv2",
+  "activation_func": "sigm_activate",
+  "runtype_active": true,
+  "depth": 1,
+  "neurons": [
+    {
+      "id": 1,
+      "curve": 3,
+      "type": 1
+    },
+    {
+      "id": 10,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 2,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 3,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 11,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 4,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 5,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 6,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 12,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 7,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 8,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 9,
+      "curve": 3,
+      "type": 0
+    }
+  ],
+  "links": [
+    {
+      "from": 4,
+      "to": 11,
+      "weight": -0.01583
+    },
+    {
+      "from": 2,
+      "to": 12,
+      "weight": 0.543592
+    },
+    {
+      "from": 6,
+      "to": 10,
+      "weight": 0.506515
+    },
+    {
+      "from": 7,
+      "to": 10,
+      "weight": -1.495028
+    }
+  ]
+}
