@@ -1,29 +1,34 @@
 extends Node
 
 
-var LEVEL 
-var repeat 
-var vsai  
-var AI_CONFIG 
+var LEVEL =  "res://src/levels/level1.tscn"
+var repeat = str(true)
+var vsai = str(true)
+var AI_CONFIG = "level1"
 
 func _on_repeat_toggled(button_pressed):
-	Variables.repeat = String(button_pressed).to_lower()
-
+	repeat = String(button_pressed).to_lower()
+	Variables.repeat = str(repeat)
 
 func _on_vsai_toggled(button_pressed):
-	Variables.vsai = String(button_pressed).to_lower()
-
+	vsai = String(button_pressed).to_lower()
+	Variables.vsai = str(vsai)
 func _on_OptionButton_item_selected(index):
 	if index == 0:
-		Variables.LEVEL = "res://src/levels/level1.tscn"
-		Variables.AI_CONFIG = "level1"
+		LEVEL = "res://src/levels/level1.tscn"
+		AI_CONFIG = "level1"
+		Variables.LEVEL = LEVEL
+		Variables.AI_CONFIG = AI_CONFIG
 	elif index == 1:
-		Variables.LEVEL = "res://src/levels/level2.tscn"
-		Variables.AI_CONFIG = "level2"
+		LEVEL = "res://src/levels/level2.tscn"
+		AI_CONFIG = "level2"
+		Variables.LEVEL = LEVEL
+		Variables.AI_CONFIG = AI_CONFIG
 	elif index == 2:
-		Variables.LEVEL = "res://src/levels/level3.tscn"
-		Variables.AI_CONFIG = "level3"
-
+		LEVEL = "res://src/levels/level3.tscn"
+		AI_CONFIG = "level3"
+		Variables.LEVEL = LEVEL
+		Variables.AI_CONFIG = AI_CONFIG
 func _on_playb_pressed():
 	if vsai == "true":
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
