@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Time-pass"
-run/main_scene="res://src/levels/level1.tscn"
+run/main_scene="res://src/UI/WELCOME.tscn"
 config/icon="res://icon.png"
 
 [autoload]

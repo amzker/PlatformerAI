@@ -26,7 +26,7 @@ func _on_enhit_area_entered(area)-> void:
 	$jump.play()
 
 func _on_enhit_body_entered(body)-> void:
-	get_tree().change_scene("res://src/UI/game_over.tscn")
+	get_tree().change_scene("res://src/UI/WELCOME.tscn")
 
 func _physics_process(delta: float)-> void:
 	"""
