@@ -1,28 +1,28 @@
 extends Node
 
 
-var LEVEL = "res://src/levels/level1.tscn"
-var repeat = str("true")
-var vsai  = str("true")
-var AI_CONFIG = "level1"
+var LEVEL 
+var repeat 
+var vsai  
+var AI_CONFIG 
 
 func _on_repeat_toggled(button_pressed):
-	repeat = String(button_pressed).to_lower()
+	Variables.repeat = String(button_pressed).to_lower()
 
 
 func _on_vsai_toggled(button_pressed):
-	vsai = String(button_pressed).to_lower()
+	Variables.vsai = String(button_pressed).to_lower()
 
 func _on_OptionButton_item_selected(index):
 	if index == 0:
-		LEVEL = "res://src/levels/level1.tscn"
-		AI_CONFIG = "level1"
+		Variables.LEVEL = "res://src/levels/level1.tscn"
+		Variables.AI_CONFIG = "level1"
 	elif index == 1:
-		LEVEL = "res://src/levels/level2.tscn"
-		AI_CONFIG = "level2"
+		Variables.LEVEL = "res://src/levels/level2.tscn"
+		Variables.AI_CONFIG = "level2"
 	elif index == 2:
-		LEVEL = "res://src/levels/level2.tscn"
-		AI_CONFIG = "level3"
+		Variables.LEVEL = "res://src/levels/level3.tscn"
+		Variables.AI_CONFIG = "level3"
 
 func _on_playb_pressed():
 	if vsai == "true":
