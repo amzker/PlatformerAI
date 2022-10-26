@@ -3,19 +3,34 @@ extends Area2D
 
 onready var anima: AnimationPlayer = $AnimationPlayer
 
-export var next_scene: PackedScene
 
 
 func _on_portal_body_entered(body):
-	$won.play()
+	var name = body.get_name()
+	print("name: ",name)
+	if name == "player":
+		$won.play()
+	elif name == "AI":
+		
+		if Variables.repeat == "true":
+			if Variables.vsai == "true":
+				get_tree().change_scene("res://AI/AIvsPlayer.tscn")
+			elif Variables.vsai == "false":
+				get_tree().change_scene("res://src/UI/lvloader.tscn")
+		else:
+			get_tree().change_scene("res://src/UI/WELCOME.tscn")
 
-func _get_configuration_warning() -> String:
-	return "Next scene not availible" if not next_scene else ""
 
 func teleport()->void:
 	anima.play("fade_in")
 	yield(anima, "animation_finished")
-	get_tree().change_scene_to(next_scene)
- 
+	var numi = String(Variables.LEVEL).to_int()
+	var next_scene = str("res://src/levels/level",numi+1,".tscn")
+	Variables.LEVEL = next_scene
+	if Variables.vsai == "true":
+		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
+	elif Variables.vsai == "false":
+		get_tree().change_scene("res://src/UI/lvloader.tscn")
+		 
 func _on_won_finished():
 	teleport()
