@@ -30,3 +30,6 @@ func _on_playb_pressed():
 	elif vsai == "false":
 		get_tree().change_scene("res://src/UI/lvloader.tscn")
 
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_playb_pressed()
