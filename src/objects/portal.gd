@@ -7,7 +7,6 @@ onready var anima: AnimationPlayer = $AnimationPlayer
 
 func _on_portal_body_entered(body):
 	var name = body.get_name()
-	print("name: ",name)
 	if name == "player":
 		$won.play()
 	elif name == "AI":
