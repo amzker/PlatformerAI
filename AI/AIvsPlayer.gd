@@ -1,9 +1,9 @@
 extends Node2D
 
 var player = "res://src/actors/player.tscn"
-var level = str("res://src/levels/"+Variables.LEVEL+".tscn")
+var level = Variables.LEVEL
 var AI = "res://src/actors/AI.tscn"
-var AI_NAME = Variables.LEVEL
+var AI_NAME = Variables.AI_CONFIG
 var paused = true
 var time = 0
 var time_step = 0.2
@@ -15,9 +15,9 @@ func update() -> void:
 	AI.act(output)
 	
 func _ready():
-	print(level)
-	add_child(load(level).instance())
-	player = load(player).instance()
+	level = load(level).instance()
+	add_child(level)
+	#player = load(player).instance()
 	AI = load(AI).instance()
 	#$testlv/PlayerStart.add_child(player)
 	$testlv/Start.add_child(AI)
@@ -28,3 +28,5 @@ func _ready():
 
 func _physics_process(delta) -> void:
 	update()
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene("res://src/UI/WELCOME.tscn")
