@@ -39,48 +39,56 @@ stream = ExtResource( 1 )
 area_mask = 3
 
 [node name="cast1" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 0, 194 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast4" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 0, -194 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast2" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 0 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast3" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, 0 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast5" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, -194 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast6" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 194 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast7" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, -194 )
 collision_mask = 14
 collide_with_areas = true
 
 [node name="cast8" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, 194 )
 collision_mask = 14

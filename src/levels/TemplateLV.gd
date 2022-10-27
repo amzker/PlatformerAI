@@ -10,11 +10,14 @@ func _ready():
 		get_node("UI/Virtual joystick2").visible = false
 
 
-func _on_death_area_body_entered(body):
-	get_tree().change_scene("res://src/levels/game_over.tscn")
+
+func _on_MENUB_pressed():
+	get_tree().change_scene("res://src/UI/WELCOME.tscn")
 
 
-func _physics_process(delta):
-		if Input.is_action_just_pressed("retry"):
-			get_tree().change_scene("res://src/levels/TemplateLV.tscn")
-		
+
+func _on_RestartB_pressed():
+	if Variables.vsai == "true":
+		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
+	elif Variables.vsai == "false":
+		get_tree().change_scene("res://src/UI/lvloader.tscn")

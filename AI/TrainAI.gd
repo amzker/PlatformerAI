@@ -3,13 +3,12 @@ extends Control
 var time = 0
 var total_time = 0
 var time_step = 0.2
-var generation_step = 15
+var generation_step = 10
 var agent_body_path = "res://src/actors/AI.tscn"
-var track_path = "res://src/TRlevels/level3.tscn"
+var track_path = "res://src/TRlevels/TRlevel1.tscn"
+var ga = GeneticAlgorithm.new(12, 3, agent_body_path, true, "AI_params")
 
-var ga = GeneticAlgorithm.new(8, 3, agent_body_path, true, "AI_params")
-
-var fitness_threshold = 15720
+var fitness_threshold = 0
 var paused = true
 
 func place_bodies(bodies: Array) -> void:
@@ -19,11 +18,14 @@ func place_bodies(bodies: Array) -> void:
 		$testlv/Start.add_child(body)
 
 func _ready():
-	
+	print("At train ai ready")
+	Variables.TRMODE =  str(true)
 	add_child(load(track_path).instance())
 	add_child(ga)
-	add_child(load("res://NEAT_usability/camera/ZoomPanCam.tscn").instance())
+	#add_child(load("res://NEAT_usability/camera/ZoomPanCam.tscn").instance())
 	place_bodies(ga.get_curr_bodies())
+	fitness_threshold = $testlv/ENDR.position.x + $testlv/ENDR.position.y 
+	print(fitness_threshold) 
 	paused = false
 
 

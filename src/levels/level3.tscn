@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-bold-italic.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=6]
@@ -10,49 +11,12 @@
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=10]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
 [node name="testlv" type="Node2D"]
 script = ExtResource( 8 )
-
-[node name="UI" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="Background" type="TextureRect" parent="UI"]
-modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-
-[node name="counter" parent="UI" instance=ExtResource( 10 )]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -48.5
-margin_top = 0.0
-margin_right = 48.5
-margin_bottom = 117.0
-
-[node name="Virtual joystick" parent="UI" instance=ExtResource( 9 )]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -235.749
-margin_top = -203.575
-margin_right = -35.7485
-margin_bottom = -3.57483
-joystick_mode = 1
-visibility_mode = 1
-action_left = "move_left"
-action_right = "move_right"
-action_up = "jump"
-
-[node name="Virtual joystick2" parent="UI" instance=ExtResource( 9 )]
-margin_left = 168.018
-margin_top = -203.575
-margin_right = 368.018
-margin_bottom = -3.57483
-joystick_mode = 1
-visibility_mode = 1
-action_left = "move_left"
-action_right = "move_right"
-action_up = "jump"
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 189.762, 773.3 )
@@ -158,3 +122,80 @@ position = Vector2( 339.313, 764.153 )
 
 [node name="PlayerStart" type="Position2D" parent="."]
 position = Vector2( 187.288, 765.116 )
+
+[node name="background" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="background"]
+modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="counter" parent="background" instance=ExtResource( 10 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.5
+margin_top = 0.0
+margin_right = 48.5
+margin_bottom = 117.0
+
+[node name="MENUB" type="TouchScreenButton" parent="background"]
+position = Vector2( 91.5703, 42.4264 )
+scale = Vector2( 2.4, 1.04 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="background/MENUB"]
+margin_left = -0.294622
+margin_top = -1.14441e-05
+margin_right = 39.7054
+margin_bottom = 19.0
+rect_scale = Vector2( 0.516666, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "menu"
+
+[node name="RestartB" type="TouchScreenButton" parent="background"]
+position = Vector2( 162.281, 42.0729 )
+scale = Vector2( 2.12, 1 )
+shape = SubResource( 2 )
+
+[node name="Label2" type="Label" parent="background/RestartB"]
+margin_left = -0.333534
+margin_top = 1.41422
+margin_right = 39.6665
+margin_bottom = 20.4142
+rect_scale = Vector2( 0.516666, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Restart"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Virtual joystick" parent="UI" instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_right = 1.069
+margin_left = -225.636
+margin_top = -209.35
+margin_right = -84.2922
+margin_bottom = -9.34961
+rect_scale = Vector2( 1.2743, 1.26329 )
+deadzone_size = 11.0
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
+
+[node name="Virtual joystick2" parent="UI" instance=ExtResource( 9 )]
+margin_left = 84.1322
+margin_top = -196.825
+margin_right = 284.132
+margin_bottom = 3.1748
+rect_scale = Vector2( 1.24, 1.11949 )
+joystick_mode = 1
+visibility_mode = 1
+action_left = "move_left"
+action_right = "move_right"
+action_up = "jump"
+
+[node name="ENDR" type="Position2D" parent="."]
+position = Vector2( 6385.62, 355.536 )

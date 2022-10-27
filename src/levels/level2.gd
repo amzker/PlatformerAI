@@ -14,3 +14,14 @@ func _ready():
 		$"UI/Virtual joystick".hide()
 		$"UI/Virtual joystick2".hide()
 
+
+func _on_MENUB_pressed():
+	get_tree().change_scene("res://src/UI/WELCOME.tscn")
+
+
+
+func _on_RestartB_pressed():
+	if Variables.vsai == "true":
+		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
+	elif Variables.vsai == "false":
+		get_tree().change_scene("res://src/UI/lvloader.tscn")

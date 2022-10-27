@@ -7,15 +7,32 @@ var raycasters = []
 var num_casts = 8
 var sight_range = 1000
 var startposition = 0
-var endposition = 0
+var currentposi = 0
 var rightst = 0
 var leftst = 0
 var jumpp: bool = false
-var stime
-var etime = 0
+var ENDRPOSI 
+var fitness = 0
+
 func _ready():
-	startposition = self.position.x
-	stime = 0
+	if Variables.TRMODE == "True":
+		#print("At trmode true")
+		startposition = get_node("/root/trainer/testlv/Start").position #testlv/Start.position #testlv is main node name of all levels and will be availible when ai added to it as childS
+		ENDRPOSI =  get_node("/root/trainer/testlv/ENDR").position
+	elif Variables.TRMODE == "False":
+		#print("At trmode false")
+		currentposi = self.position
+		if Variables.vsai == "true":
+		#	print("at vsai true")
+			ENDRPOSI = get_node("/root/AIvsPlayer/testlv/ENDR").position
+		else:
+		#	print("at vsai false")
+			ENDRPOSI = get_node("/root/lvloader/testlv/ENDR").position 
+	else:
+		print(Variables.TRMODE)
+		print("some real shit happened in assigning vRIbles")
+		breakpoint 
+	#print("endposi after", ENDRPOSI)
 func get_direction(rightst,leftst,jumpp) -> Vector2:
 	return Vector2(rightst - leftst , -1 if jumpp and is_on_floor() else 1)
 
@@ -40,8 +57,7 @@ func _on_enhit_area_entered(area)-> void:
 	$jump.play()
 
 func _on_enhit_body_entered(body)-> void:
-	endposition = self.position.x
-	#print(endposition)
+	currentposi = self.position
 	emit_signal("death")
 	#queue_free()
 
@@ -50,8 +66,9 @@ func _physics_process(delta: float)-> void:
 	var direction: = get_direction(rightst,leftst,jumpp)
 	_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
-	endposition = self.position.x
-	#etime = etime + 1
+	currentposi = self.position
+
+
 
 ####ALGORITHM  NEEDS
 
@@ -115,29 +132,32 @@ func sense() -> Array:
 			senses.append(distance)
 		else:
 			senses.append(1)
-		#senses.append(_velocity)
+		senses.append(currentposi.x)
+		senses.append(currentposi.y)
+		senses.append(ENDRPOSI.x)
+		senses.append(ENDRPOSI.y)
 		#print("seses",senses)
 
 		return senses
 	
 func act(actions: Array) -> void:
-	if actions[0] > 0.3:
+	if actions[0] > 0.6:
 		#Input.action_press("move_right", actions[0])
 		rightst = 1
 	
-	elif actions[1] >0.3:
-		leftst = -1
+	elif actions[1] >0.6:
+		leftst = 1
 		#Input.action_press("move_left", actions[1])
-	elif actions[2] > 0.3:
+	elif actions[2] > 0.6:
 		jumpp = true
 		#Input.action_press("jump")
 
 func get_fitness() -> float:
-	#var distanceTravelled = (float(endposition - startposition) * 60 / (15720 * (etime-stime))) + 1 # (x distance from start to end in lv 1 is 15720)
-	var distanceTravelled = (float(endposition - startposition)  /15720) + 1 # (x distance from start to end in lv 1 is 15720)
-	return distanceTravelled
-
-
-
-##start positiin (127 , 724)
-
+	#var distanceTravelled = (float(currentposi - startposition) * 60 / (15720 * (etime-stime))) + 1 # (x distance from start to end in lv 1 is 15720)
+	#var distanceTravelled = (float(currentposi - startposition)  /15720) + 1 # (x distance from start to end in lv 1 is 15720)
+	var endts = ENDRPOSI.x + ENDRPOSI.y
+	var crts = currentposi.x + currentposi.y 
+	var diffs = ENDRPOSI - currentposi
+	fitness = endts /((endts - crts)+10)
+	#print("debug: ", 10/((10-6)+1))
+	return fitness

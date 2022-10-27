@@ -17,9 +17,7 @@ func update() -> void:
 func _ready():
 	level = load(level).instance()
 	add_child(level)
-	#player = load(player).instance()
 	AI = load(AI).instance()
-	#$testlv/PlayerStart.add_child(player)
 	$testlv/Start.add_child(AI)
 	network = load("res://NEAT_usability/standalone_scripts/standalone_neuralnet.gd").new()
 	network.load_config(AI_NAME)
