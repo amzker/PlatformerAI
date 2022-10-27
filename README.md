@@ -2,7 +2,7 @@
 
 as name suggets you will be playing against AI 
 
-NOTE: LV4 does not exist, also if AI does not move then restart level from welcome menu.
+NOTE: LV4 does not exist, also if AI does not move then restart level from welcome menu. [M key is shortcut]
 - this will happpen when next scene is loaded from portal, and i need to debug that for now.
 
 # **TODO**:
