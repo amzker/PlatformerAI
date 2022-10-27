@@ -1,6 +1,6 @@
 {
-  "network_name": "level1",
-  "activation_func": "tanh_activate",
+  "network_name": "level3",
+  "activation_func": "sigm_activate",
   "runtype_active": true,
   "depth": 1,
   "neurons": [
@@ -10,13 +10,13 @@
       "type": 1
     },
     {
-      "id": 12,
+      "id": 10,
       "curve": 3,
       "type": 3
     },
     {
       "id": 2,
-      "curve": 2.95574,
+      "curve": 3,
       "type": 0
     },
     {
@@ -25,14 +25,14 @@
       "type": 0
     },
     {
+      "id": 11,
+      "curve": 3,
+      "type": 3
+    },
+    {
       "id": 4,
       "curve": 3,
       "type": 0
-    },
-    {
-      "id": 13,
-      "curve": 3,
-      "type": 3
     },
     {
       "id": 5,
@@ -45,14 +45,14 @@
       "type": 0
     },
     {
-      "id": 7,
-      "curve": 3.267852,
-      "type": 0
-    },
-    {
-      "id": 14,
+      "id": 12,
       "curve": 3,
       "type": 3
+    },
+    {
+      "id": 7,
+      "curve": 3,
+      "type": 0
     },
     {
       "id": 8,
@@ -63,48 +63,28 @@
       "id": 9,
       "curve": 3,
       "type": 0
-    },
-    {
-      "id": 10,
-      "curve": 3,
-      "type": 0
-    },
-    {
-      "id": 11,
-      "curve": 3,
-      "type": 0
     }
   ],
   "links": [
     {
-      "from": 3,
-      "to": 12,
-      "weight": 0.119229
+      "from": 4,
+      "to": 11,
+      "weight": -0.278527
     },
     {
-      "from": 11,
-      "to": 13,
-      "weight": 0.117598
+      "from": 9,
+      "to": 10,
+      "weight": 0.504736
+    },
+    {
+      "from": 3,
+      "to": 11,
+      "weight": 0.16341
     },
     {
       "from": 4,
-      "to": 12,
-      "weight": 0.065128
-    },
-    {
-      "from": 10,
-      "to": 13,
-      "weight": -0.361205
-    },
-    {
-      "from": 5,
-      "to": 14,
-      "weight": 1.249148
-    },
-    {
-      "from": 8,
-      "to": 12,
-      "weight": -1.530291
+      "to": 10,
+      "weight": -1.125639
     }
   ]
 }

@@ -3,14 +3,18 @@ extends Area2D
 
 onready var anima: AnimationPlayer = $AnimationPlayer
 
-
+var first = ""
+var secound = ""
 
 func _on_portal_body_entered(body):
 	var name = body.get_name()
-	if name == "player":
+	if first == "":
+		first = name
+	else:
+		secound = name
+	if first == "player":
 		$won.play()
-	elif name == "AI":
-		
+	elif first == "AI":
 		if Variables.repeat == "true":
 			if Variables.vsai == "true":
 				get_tree().change_scene("res://AI/AIvsPlayer.tscn")
@@ -18,7 +22,6 @@ func _on_portal_body_entered(body):
 				get_tree().change_scene("res://src/UI/lvloader.tscn")
 		else:
 			get_tree().change_scene("res://src/UI/WELCOME.tscn")
-
 
 func teleport()->void:
 	anima.play("fade_in")

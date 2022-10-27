@@ -1,5 +1,5 @@
 {
-  "network_name": "level1",
+  "network_name": "level3h",
   "activation_func": "tanh_activate",
   "runtype_active": true,
   "depth": 1,
@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "curve": 2.95574,
+      "curve": 3,
       "type": 0
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "id": 7,
-      "curve": 3.267852,
+      "curve": 3,
       "type": 0
     },
     {
@@ -66,7 +66,7 @@
     },
     {
       "id": 10,
-      "curve": 3,
+      "curve": 3.592911,
       "type": 0
     },
     {
@@ -77,34 +77,34 @@
   ],
   "links": [
     {
-      "from": 3,
-      "to": 12,
-      "weight": 0.119229
+      "from": 10,
+      "to": 14,
+      "weight": 0.248596
+    },
+    {
+      "from": 8,
+      "to": 14,
+      "weight": 0.524485
     },
     {
       "from": 11,
       "to": 13,
-      "weight": 0.117598
-    },
-    {
-      "from": 4,
-      "to": 12,
-      "weight": 0.065128
-    },
-    {
-      "from": 10,
-      "to": 13,
-      "weight": -0.361205
-    },
-    {
-      "from": 5,
-      "to": 14,
-      "weight": 1.249148
+      "weight": -1.090891
     },
     {
       "from": 8,
       "to": 12,
-      "weight": -1.530291
+      "weight": -0.50456
+    },
+    {
+      "from": 4,
+      "to": 12,
+      "weight": 0.831034
+    },
+    {
+      "from": 3,
+      "to": 12,
+      "weight": 2.034463
     }
   ]
 }

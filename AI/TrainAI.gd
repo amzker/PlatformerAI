@@ -5,8 +5,8 @@ var total_time = 0
 var time_step = 0.2
 var generation_step = 10
 var agent_body_path = "res://src/actors/AI.tscn"
-var track_path = "res://src/TRlevels/TRlevel1.tscn"
-var ga = GeneticAlgorithm.new(12, 3, agent_body_path, true, "AI_params")
+var track_path = "res://src/TRlevels/TRlevel3.tscn"
+var ga = GeneticAlgorithm.new(10, 3, agent_body_path, true, "AI_params")
 
 var fitness_threshold = 0
 var paused = true

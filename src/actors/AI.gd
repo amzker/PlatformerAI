@@ -132,8 +132,8 @@ func sense() -> Array:
 			senses.append(distance)
 		else:
 			senses.append(1)
-		senses.append(currentposi.x)
-		senses.append(currentposi.y)
+		#senses.append(currentposi.x)
+		#senses.append(currentposi.y)
 		senses.append(ENDRPOSI.x)
 		senses.append(ENDRPOSI.y)
 		#print("seses",senses)

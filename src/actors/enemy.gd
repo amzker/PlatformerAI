@@ -8,8 +8,8 @@ func _ready():
 func _on_hit_body_entered(body)-> void:
 	if body.global_position.y > get_node("hit").global_position.y:
 		return
-	get_node("CollisionPolygon2D").disabled = true
-	queue_free()
+	#get_node("CollisionPolygon2D").disabled = true
+	#queue_free()
 
 
 

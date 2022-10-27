@@ -1,13 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/actors/enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/images/background.png" type="Texture" id=4]
-[ext_resource path="res://src/levels/level2.gd" type="Script" id=5]
-[ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-bold-italic.tres" type="DynamicFont" id=9]
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=10]
 
@@ -16,7 +11,6 @@
 [sub_resource type="RectangleShape2D" id=8]
 
 [node name="testlv" type="Node2D"]
-script = ExtResource( 5 )
 
 [node name="enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1583, 733 )
@@ -47,9 +41,6 @@ position = Vector2( 10363, 170 )
 
 [node name="enemy9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 10200.9, 2098.02 )
-
-[node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 143, 721 )
 
 [node name="coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1161, 723 )
@@ -99,9 +90,6 @@ position = Vector2( 9969.8, 416.917 )
 [node name="coin11" parent="." instance=ExtResource( 7 )]
 position = Vector2( 12105.5, 747.957 )
 
-[node name="portal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 12785.6, 651.6 )
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -1, -2 )
 tile_set = ExtResource( 2 )
@@ -114,16 +102,10 @@ tile_data = PoolIntArray( 0, 0, 0, 141, 0, 0, 142, 0, 0, 143, 0, 0, 144, 0, 0, 1
 position = Vector2( 286.44, 690.38 )
 
 [node name="PlayerStart" type="Position2D" parent="."]
-position = Vector2( 243.037, 607.594 )
+position = Vector2( 144.26, 722.085 )
 
 [node name="background" type="CanvasLayer" parent="."]
 layer = -100
-
-[node name="Background" type="TextureRect" parent="background"]
-modulate = Color( 0.780392, 0.545098, 0.545098, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 4 )
 
 [node name="counter" parent="background" instance=ExtResource( 10 )]
 anchor_left = 0.5
@@ -160,35 +142,6 @@ margin_bottom = 20.4142
 rect_scale = Vector2( 0.516666, 1 )
 custom_fonts/font = ExtResource( 9 )
 text = "Restart"
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Virtual joystick" parent="UI" instance=ExtResource( 6 )]
-anchor_left = 1.0
-anchor_right = 1.069
-margin_left = -225.636
-margin_top = -209.35
-margin_right = -84.2922
-margin_bottom = -9.34961
-rect_scale = Vector2( 1.2743, 1.26329 )
-deadzone_size = 11.0
-joystick_mode = 1
-visibility_mode = 1
-action_left = "move_left"
-action_right = "move_right"
-action_up = "jump"
-
-[node name="Virtual joystick2" parent="UI" instance=ExtResource( 6 )]
-margin_left = 84.1322
-margin_top = -196.825
-margin_right = 284.132
-margin_bottom = 3.1748
-rect_scale = Vector2( 1.24, 1.11949 )
-joystick_mode = 1
-visibility_mode = 1
-action_left = "move_left"
-action_right = "move_right"
-action_up = "jump"
 
 [node name="ENDR" type="Position2D" parent="."]
 position = Vector2( 12786.3, 634.812 )
