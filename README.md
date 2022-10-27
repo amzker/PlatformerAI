@@ -4,7 +4,7 @@ as name suggets you will be playing against AI
 
 NOTE: LV4 does not exist,
 
-#TODO:
+# **TODO**:
 - clearup levels & train AI for that level [done]
 - Create Gun Enemies
 - Fix stupid codes such as one in AI.gd 
