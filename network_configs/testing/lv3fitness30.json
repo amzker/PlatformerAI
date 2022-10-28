@@ -1,27 +1,27 @@
 {
-  "network_name": "level1beta2",
+  "network_name": "lv3fitness30",
   "activation_func": "tanh_activate",
   "runtype_active": true,
-  "depth": 2,
+  "depth": 1,
   "neurons": [
     {
       "id": 15,
-      "curve": 3,
+      "curve": 2.75338,
       "type": 3
     },
     {
       "id": 1,
-      "curve": 2.714603,
+      "curve": 3,
       "type": 1
     },
     {
       "id": 2,
-      "curve": 2.107504,
+      "curve": 3,
       "type": 0
     },
     {
       "id": 3,
-      "curve": 3,
+      "curve": 3.648915,
       "type": 0
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "id": 5,
-      "curve": 3,
+      "curve": 3.020669,
       "type": 0
     },
     {
@@ -41,18 +41,13 @@
     },
     {
       "id": 6,
-      "curve": 2.727841,
+      "curve": 3,
       "type": 0
     },
     {
       "id": 7,
-      "curve": 3.068259,
+      "curve": 3,
       "type": 0
-    },
-    {
-      "id": 19,
-      "curve": 2.977258,
-      "type": 2
     },
     {
       "id": 8,
@@ -61,12 +56,12 @@
     },
     {
       "id": 9,
-      "curve": 3.054432,
+      "curve": 3,
       "type": 0
     },
     {
       "id": 17,
-      "curve": 3.193508,
+      "curve": 3,
       "type": 3
     },
     {
@@ -75,18 +70,13 @@
       "type": 0
     },
     {
-      "id": 32,
-      "curve": 2.932668,
-      "type": 2
-    },
-    {
       "id": 11,
       "curve": 3,
       "type": 0
     },
     {
       "id": 12,
-      "curve": 2.785025,
+      "curve": 3,
       "type": 0
     },
     {
@@ -96,65 +86,40 @@
     },
     {
       "id": 14,
-      "curve": 3.39962,
+      "curve": 3,
       "type": 0
     }
   ],
   "links": [
     {
-      "from": 4,
-      "to": 16,
-      "weight": -1.37721
-    },
-    {
       "from": 6,
       "to": 17,
-      "weight": 0.007066
+      "weight": 1.124121
     },
     {
-      "from": 3,
+      "from": 11,
       "to": 15,
-      "weight": 1.747003
+      "weight": 0.366341
     },
     {
-      "from": 9,
+      "from": 8,
       "to": 16,
-      "weight": -0.862937
+      "weight": -1.413521
     },
     {
-      "from": 7,
+      "from": 5,
       "to": 16,
-      "weight": -0.142202
+      "weight": -0.25062
     },
     {
-      "from": 19,
-      "to": 15,
-      "weight": -1.814206
-    },
-    {
-      "from": 4,
+      "from": 5,
       "to": 17,
-      "weight": 2.105738
+      "weight": 0.916659
     },
     {
-      "from": 19,
-      "to": 16,
-      "weight": 0.004104
-    },
-    {
-      "from": 17,
+      "from": 2,
       "to": 17,
-      "weight": -0.23428
-    },
-    {
-      "from": 14,
-      "to": 32,
-      "weight": 1
-    },
-    {
-      "from": 32,
-      "to": 19,
-      "weight": 2.417601
+      "weight": 0.530774
     }
   ]
 }

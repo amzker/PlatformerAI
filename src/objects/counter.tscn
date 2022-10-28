@@ -1,23 +1,51 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/images/font_title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/images/coin.png" type="Texture" id=2]
 [ext_resource path="res://src/objects/counter.gd" type="Script" id=3]
+[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=4]
 
 [node name="counter" type="Label"]
-margin_left = 91.3636
-margin_top = 70.6353
-margin_right = 188.364
-margin_bottom = 187.635
-custom_fonts/font = ExtResource( 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -8.0
+margin_top = 23.811
+margin_right = 8.0
+margin_bottom = 48.811
+custom_fonts/font = ExtResource( 4 )
 text = "0"
 valign = 1
 script = ExtResource( 3 )
 
-[node name="CoinCount" type="TextureRect" parent="."]
-margin_left = -77.5449
-margin_top = 27.8921
-margin_right = -8.54486
-margin_bottom = 95.8921
-rect_scale = Vector2( 0.93483, 0.92132 )
+[node name="CoinCount" type="Sprite" parent="."]
+position = Vector2( -80.4749, 15.6612 )
+scale = Vector2( 0.82429, 0.698783 )
 texture = ExtResource( 2 )
+
+[node name="CoinCount2" type="Sprite" parent="."]
+position = Vector2( 163.544, 15.9019 )
+scale = Vector2( 0.849221, 0.731949 )
+texture = ExtResource( 2 )
+
+[node name="player" type="Label" parent="."]
+margin_left = -215.878
+margin_top = 2.16306
+margin_right = -143.878
+margin_bottom = 28.1631
+custom_fonts/font = ExtResource( 4 )
+text = "PLAYER"
+
+[node name="AI" type="Label" parent="."]
+margin_left = 87.0
+margin_top = 4.0
+margin_right = 116.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "AI"
+
+[node name="AIcount" type="Label" parent="."]
+margin_left = 210.0
+margin_top = 6.0
+margin_right = 226.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"

@@ -1,9 +1,6 @@
 extends Label
 
+func _physics_process(delta):
+	$".".text = str(Variables.plcoin) 
+	$AIcount.text = str(Variables.AIcoin) 
 
-var coins = 0
-
-
-func _on_coin_coin_collected():
-	coins = coins + 1
-	$".".text = str(coins) 

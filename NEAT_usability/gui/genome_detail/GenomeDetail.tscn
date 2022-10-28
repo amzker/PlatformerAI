@@ -83,9 +83,7 @@ margin_bottom = 294.0
 margin_top = 13.0
 margin_right = 106.0
 margin_bottom = 27.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0.537255, 0.537255, 0.537255, 1 )
-custom_colors/font_color_shadow = Color( 0.690196, 0.690196, 0.690196, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Highlight Agent: "
 
 [node name="HighlightToggle" type="CheckButton" parent="WindowLayout/GenomeDetailContent/ContentSeperator/HBoxContainer" index="1"]
@@ -103,5 +101,6 @@ text = "Save Network"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="toggled" from="WindowLayout/GenomeDetailContent/ContentSeperator/HBoxContainer/HighlightToggle" to="." method="_on_HighlightToggle_toggled"]
 [connection signal="button_down" from="WindowLayout/GenomeDetailContent/ContentSeperator/HBoxContainer/SaveNetwork" to="." method="_on_SaveNetwork_button_down"]

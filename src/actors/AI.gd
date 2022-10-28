@@ -13,6 +13,7 @@ var leftst = 0
 var jumpp: bool = false
 var ENDRPOSI 
 var fitness = 0
+var coinsbyai = 0
 
 func _ready():
 	if Variables.TRMODE == "True":
@@ -33,6 +34,7 @@ func _ready():
 		print("some real shit happened in assigning vRIbles")
 		breakpoint 
 	#print("endposi after", ENDRPOSI)
+
 func get_direction(rightst,leftst,jumpp) -> Vector2:
 	return Vector2(rightst - leftst , -1 if jumpp and is_on_floor() else 1)
 
@@ -58,9 +60,15 @@ func _on_enhit_area_entered(area)-> void:
 
 func _on_enhit_body_entered(body)-> void:
 	currentposi = self.position
-	emit_signal("death")
-	#queue_free()
+	if Variables.TRMODE == "True":
+		emit_signal("death")
+	else:
+		pass
+		#queue_free()
 
+func _on_CoinDetectArea_area_entered(area):
+	coinsbyai = coinsbyai + 1
+	
 func _physics_process(delta: float)-> void:
 	var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
 	var direction: = get_direction(rightst,leftst,jumpp)
@@ -74,90 +82,47 @@ func _physics_process(delta: float)-> void:
 
 func sense() -> Array:
 		var senses = []
-		#FUCK THIS VVARIABLE  SHIT , I AM HARCODING IT 
-		$cast1.force_raycast_update()
-		if $cast1.is_colliding():
-			var collision = $cast1.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast3.force_raycast_update()
-		if $cast3.is_colliding():
-			var collision = $cast3.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast2.force_raycast_update()
-		if $cast2.is_colliding():
-			var collision = $cast2.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
+		var badrs = [$BodyAreaDetectoRAY1,$BodyAreaDetectoRAY2,$BodyAreaDetectoRAY3,$BodyAreaDetectoRAY4,$BodyAreaDetectoRAY5]
+		var cdrs = [$CoinDetectoRAY1,$CoinDetectoRAY2,$CoinDetectoRAY3,$CoinDetectoRAY4,$CoinDetectoRAY5,$CoinDetectoRAY6,$CoinDetectoRAY7]
+		for cdr in cdrs:
+			#print(cdr)
+			cdr.force_raycast_update()
+			if cdr.is_colliding():
+				if cdr.collide_with_areas:
+					if "coin" in cdr.get_collider().name:
+						var collision = cdr.get_collision_point()
+						var distance = (collision - global_position).length()
+						senses.append(distance)
+					else:
+						senses.append(1)
+			else:
+				senses.append(1)
 
-		$cast4.force_raycast_update()
-		if $cast4.is_colliding():
-			var collision = $cast4.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast5.force_raycast_update()
-		if $cast5.is_colliding():
-			var collision = $cast5.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast6.force_raycast_update()
-		if $cast6.is_colliding():
-			var collision = $cast6.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast7.force_raycast_update()
-		if $cast7.is_colliding():
-			var collision = $cast7.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		$cast8.force_raycast_update()
-		if $cast8.is_colliding():
-			var collision = $cast8.get_collision_point()
-			var distance = (collision - global_position).length()
-			senses.append(distance)
-		else:
-			senses.append(1)
-		#senses.append(currentposi.x)
-		#senses.append(currentposi.y)
-		senses.append(ENDRPOSI.x)
-		senses.append(ENDRPOSI.y)
-		#print("seses",senses)
 
+		for badr in badrs:
+			#print(badr)
+			badr.force_raycast_update()
+			if badr.is_colliding():
+				var collision = badr.get_collision_point()
+				var distance = (collision - global_position).length()
+				senses.append(distance)
+			else:
+				senses.append(1)
+		senses.append(coinsbyai)
 		return senses
-	
+
 func act(actions: Array) -> void:
 	if actions[0] > 0.6:
-		#Input.action_press("move_right", actions[0])
 		rightst = 1
-	
 	elif actions[1] >0.6:
 		leftst = 1
-		#Input.action_press("move_left", actions[1])
 	elif actions[2] > 0.6:
 		jumpp = true
-		#Input.action_press("jump")
+
 
 func get_fitness() -> float:
-	#var distanceTravelled = (float(currentposi - startposition) * 60 / (15720 * (etime-stime))) + 1 # (x distance from start to end in lv 1 is 15720)
-	#var distanceTravelled = (float(currentposi - startposition)  /15720) + 1 # (x distance from start to end in lv 1 is 15720)
-	var endts = ENDRPOSI.x + ENDRPOSI.y
-	var crts = currentposi.x + currentposi.y 
-	var diffs = ENDRPOSI - currentposi
-	fitness = endts /((endts - crts)+10)
-	#print("debug: ", 10/((10-6)+1))
+	fitness = coinsbyai
+	if fitness == 0:
+		fitness = 1
 	return fitness
+

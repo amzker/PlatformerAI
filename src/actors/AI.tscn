@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/music/jump.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/images/player.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49.25, 38 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48.4368, 34.6482 )
 
 [node name="AI" type="KinematicBody2D"]
 collision_layer = 16
@@ -20,7 +23,6 @@ scale = Vector2( 0.979167, 0.770833 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2( -0.999998, 7 )
 scale = Vector2( 0.976562, 0.768229 )
 polygon = PoolVector2Array( -12, -11, -48, -32, -48, 33, -35, 47, 35, 48, 48, 34, 48, -32, 42, -44, 32, -48, -35, -48, -46, -38, -48, -34 )
@@ -38,61 +40,102 @@ shape = SubResource( 1 )
 stream = ExtResource( 1 )
 area_mask = 3
 
-[node name="cast1" type="RayCast2D" parent="."]
+[node name="BodyAreaDetectoRAY1" type="RayCast2D" parent="."]
+position = Vector2( 0, 2 )
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 0, 194 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast4" type="RayCast2D" parent="."]
+[node name="BodyAreaDetectoRAY2" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 0, -194 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast2" type="RayCast2D" parent="."]
+[node name="CoinDetectoRAY1" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 0 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast3" type="RayCast2D" parent="."]
+[node name="CoinDetectoRAY4" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
+enabled = true
+cast_to = Vector2( 249.672, -123.448 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="CoinDetectoRAY5" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
+enabled = true
+cast_to = Vector2( 225.63, 99.9976 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="CoinDetectoRAY6" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
+enabled = true
+cast_to = Vector2( 96.9367, 255.561 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="CoinDetectoRAY7" type="RayCast2D" parent="."]
+scale = Vector2( 4, 4 )
+enabled = true
+cast_to = Vector2( -84.0826, 255.561 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="BodyAreaDetectoRAY3" type="RayCast2D" parent="."]
+position = Vector2( 0, -2 )
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, 0 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast5" type="RayCast2D" parent="."]
+[node name="BodyAreaDetectoRAY4" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, -194 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast6" type="RayCast2D" parent="."]
+[node name="CoinDetectoRAY2" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 194 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast7" type="RayCast2D" parent="."]
+[node name="CoinDetectoRAY3" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, -194 )
 collision_mask = 14
 collide_with_areas = true
 
-[node name="cast8" type="RayCast2D" parent="."]
+[node name="BodyAreaDetectoRAY5" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( -194, 194 )
 collision_mask = 14
 collide_with_areas = true
 
+[node name="CoinDetectArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="CoinDetectArea"]
+modulate = Color( 0.980392, 0.878431, 0.0352941, 1 )
+self_modulate = Color( 0.972549, 0.913725, 0.0117647, 1 )
+position = Vector2( -2.28246, 6.52691 )
+shape = SubResource( 2 )
+
 [connection signal="area_entered" from="enhit" to="." method="_on_enhit_area_entered"]
 [connection signal="body_entered" from="enhit" to="." method="_on_enhit_body_entered"]
+[connection signal="area_entered" from="CoinDetectArea" to="." method="_on_CoinDetectArea_area_entered"]

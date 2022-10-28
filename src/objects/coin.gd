@@ -1,13 +1,18 @@
 extends Area2D
 
-onready var anim: AnimationPlayer = get_node("AnimationPlayer")
+#onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 
-signal coin_collected 
 
 func _on_coin_body_entered(body):
 	$gotcoin.play()
-	emit_signal("coin_collected")
-	anim.play("fade_out")
-
-
-
+#TRMODE LEFT LIKED THIS FOR FUTURE HELP 
+	if Variables.TRMODE == "True":
+		queue_free()
+	elif Variables.TRMODE == "False":
+		queue_free()
+	if body.name == "player":
+		Variables.plcoin = Variables.plcoin + 1
+	elif body.name == "AI":
+		Variables.AIcoin = Variables.AIcoin + 1
+	else:
+		Variables.AIcoin = Variables.AIcoin + 1

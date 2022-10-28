@@ -27,12 +27,16 @@ func teleport()->void:
 	anima.play("fade_in")
 	yield(anima, "animation_finished")
 	var numi = String(Variables.LEVEL).to_int()
-	var next_scene = str("res://src/levels/level",numi+1,".tscn")
-	Variables.LEVEL = next_scene
-	if Variables.vsai == "true":
-		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
-	elif Variables.vsai == "false":
-		get_tree().change_scene("res://src/UI/lvloader.tscn")
-		 
+	if numi < 3:
+		var next_scene = str("res://src/levels/level",numi+1,".tscn")
+		Variables.LEVEL = next_scene
+		Variables.plcoin = 0
+		Variables.AIcoin = 0 
+		if Variables.vsai == "true":
+			get_tree().change_scene("res://AI/AIvsPlayer.tscn")
+		elif Variables.vsai == "false":
+			get_tree().change_scene("res://src/UI/lvloader.tscn")
+	else:
+		get_tree().change_scene("res://src/UI/WELCOME.tscn")
 func _on_won_finished():
 	teleport()

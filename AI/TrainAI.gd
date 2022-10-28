@@ -6,8 +6,8 @@ var time_step = 0.2
 var generation_step = 10
 var agent_body_path = "res://src/actors/AI.tscn"
 var track_path = "res://src/TRlevels/TRlevel3.tscn"
-var ga = GeneticAlgorithm.new(10, 3, agent_body_path, true, "AI_params")
-
+var ga = GeneticAlgorithm.new(13, 3, agent_body_path, true, "AI_params")
+var lvpath = "res://src/TRlevels/lvpaths/lv3path.tscn"
 var fitness_threshold = 0
 var paused = true
 
@@ -18,21 +18,19 @@ func place_bodies(bodies: Array) -> void:
 		$testlv/Start.add_child(body)
 
 func _ready():
-	print("At train ai ready")
+	#print("At train ai ready")
 	Variables.TRMODE =  str(true)
 	add_child(load(track_path).instance())
+	add_child(load(lvpath).instance())
 	add_child(ga)
 	#add_child(load("res://NEAT_usability/camera/ZoomPanCam.tscn").instance())
 	place_bodies(ga.get_curr_bodies())
-	fitness_threshold = $testlv/ENDR.position.x + $testlv/ENDR.position.y 
-	print(fitness_threshold) 
+	fitness_threshold = 200
 	paused = false
-
-
-
 
 func end() -> void:
 	paused = true
+	
 
 func continue_ga(new_threshold) -> void:
 	print("continue ga is used")
@@ -51,8 +49,19 @@ func _physics_process(delta) -> void:
 			if ga.curr_best.fitness > fitness_threshold:
 				end()
 			ga.next_generation()
+			remove_child($lv3pathnode)
+			add_child(load(lvpath).instance())
 			place_bodies(ga.get_curr_bodies())
 			if ga.curr_generation % 2 == 0:
 				generation_step += 6
 				print("increased step to " + str(generation_step))
 			total_time = 0
+
+
+func _on_pause_toggled(button_pressed):
+	############################################LEFT FROM HERE ########################################
+	if str(button_pressed) == "True":
+		paused = true
+	else:
+		paused = false
+	print(paused)

@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=1]
-[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-light.tres" type="DynamicFont" id=3]
-[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-medium.tres" type="DynamicFont" id=7]
+[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=7]
 [ext_resource path="res://NEAT_usability/gui/Window.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NEAT_usability/gui/species_list/SpeciesList.gd" type="Script" id=9]
 
@@ -12,6 +10,7 @@ margin_bottom = 283.0
 script = ExtResource( 9 )
 
 [node name="Background" parent="." index="0"]
+show_behind_parent = true
 margin_right = 528.0
 margin_bottom = 303.0
 
@@ -44,15 +43,14 @@ custom_constants/separation = 4
 alignment = 1
 
 [node name="GenInfo" type="Label" parent="WindowLayout/InfoContainer" index="0"]
-margin_top = 1.0
-margin_right = 142.0
-margin_bottom = 18.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 3 )
+margin_right = 164.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 7 )
 text = "Displaying Generation: "
 
 [node name="VSeparator" type="VSeparator" parent="WindowLayout/InfoContainer" index="1"]
-margin_left = 146.0
+margin_left = 168.0
 margin_right = 407.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -61,7 +59,7 @@ size_flags_horizontal = 3
 margin_left = 411.0
 margin_right = 528.0
 margin_bottom = 20.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.988235, 0.976471, 0.976471, 1 )
 text = "Change Visibility"
 align = 0
 
@@ -92,8 +90,8 @@ rect_min_size = Vector2( 0, 80 )
 rect_clip_content = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 7 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesDetail" index="1"]
 margin_top = 84.0
@@ -124,8 +122,8 @@ rect_min_size = Vector2( 0, 80 )
 rect_clip_content = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 7 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesOverview" index="1"]
 margin_top = 84.0

@@ -7,3 +7,15 @@
 script = ExtResource( 2 )
 
 [node name="ZoomPanCam" parent="." instance=ExtResource( 1 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause" type="CheckButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -121.0
+margin_top = 65.0834
+margin_bottom = 105.083
+text = "PAUSE"
+
+[connection signal="toggled" from="CanvasLayer/pause" to="." method="_on_pause_toggled"]

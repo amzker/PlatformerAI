@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=7]
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/TemplateLV.gd" type="Script" id=9]
-[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-bold-italic.tres" type="DynamicFont" id=10]
+[ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 

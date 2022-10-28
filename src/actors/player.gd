@@ -28,6 +28,8 @@ func _on_enhit_area_entered(area)-> void:
 func _on_enhit_body_entered(body)-> void:
 	if Variables.repeat == "true":
 		if Variables.vsai == "true":
+			Variables.AIcoin = 0
+			Variables.plcoin = 0
 			get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 		elif Variables.vsai == "false":
 			get_tree().change_scene("res://src/UI/lvloader.tscn")
