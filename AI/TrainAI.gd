@@ -5,9 +5,9 @@ var total_time = 0
 var time_step = 0.2
 var generation_step = 10
 var agent_body_path = "res://src/actors/AI.tscn"
-var track_path = "res://src/TRlevels/TRlevel3.tscn"
+var track_path = "res://src/TRlevels/TRlevel1.tscn"
 var ga = GeneticAlgorithm.new(13, 3, agent_body_path, true, "AI_params")
-var lvpath = "res://src/TRlevels/lvpaths/lv3path.tscn"
+var lvpath = "res://src/TRlevels/lvpaths/lv1path.tscn"
 var fitness_threshold = 0
 var paused = true
 
@@ -25,7 +25,7 @@ func _ready():
 	add_child(ga)
 	place_bodies(ga.get_curr_bodies())
 	fitness_threshold = 200
-	#$ZoomPanCam.position = $testlv/Start.position 
+	$ZoomPanCam.position = $testlv/Start.position 
 	paused = false
 
 func end() -> void:
@@ -49,7 +49,7 @@ func _physics_process(delta) -> void:
 			if ga.curr_best.fitness > fitness_threshold:
 				end()
 			ga.next_generation()
-			remove_child($lv3pathnode)
+			remove_child($lv1pathnode)
 			add_child(load(lvpath).instance())
 			place_bodies(ga.get_curr_bodies())
 			if ga.curr_generation % 2 == 0:

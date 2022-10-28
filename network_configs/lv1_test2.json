@@ -1,0 +1,125 @@
+{
+  "network_name": "lv1_test2",
+  "activation_func": "tanh_activate",
+  "runtype_active": true,
+  "depth": 1,
+  "neurons": [
+    {
+      "id": 15,
+      "curve": 2.467216,
+      "type": 3
+    },
+    {
+      "id": 1,
+      "curve": 3,
+      "type": 1
+    },
+    {
+      "id": 2,
+      "curve": 3.342427,
+      "type": 0
+    },
+    {
+      "id": 3,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 4,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 5,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 16,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 6,
+      "curve": 2.915033,
+      "type": 0
+    },
+    {
+      "id": 7,
+      "curve": 2.435402,
+      "type": 0
+    },
+    {
+      "id": 8,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 9,
+      "curve": 3.761146,
+      "type": 0
+    },
+    {
+      "id": 17,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 10,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 11,
+      "curve": 3.239674,
+      "type": 0
+    },
+    {
+      "id": 12,
+      "curve": 2.971845,
+      "type": 0
+    },
+    {
+      "id": 13,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 14,
+      "curve": 3,
+      "type": 0
+    }
+  ],
+  "links": [
+    {
+      "from": 7,
+      "to": 16,
+      "weight": -1.919096
+    },
+    {
+      "from": 11,
+      "to": 17,
+      "weight": 0.780351
+    },
+    {
+      "from": 5,
+      "to": 16,
+      "weight": -2.109956
+    },
+    {
+      "from": 6,
+      "to": 17,
+      "weight": 0.115285
+    },
+    {
+      "from": 2,
+      "to": 15,
+      "weight": 0.953104
+    },
+    {
+      "from": 15,
+      "to": 15,
+      "weight": -0.759194
+    }
+  ]
+}

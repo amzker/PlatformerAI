@@ -2,12 +2,15 @@
 
 as name suggets you will be playing against AI 
 
-if AI does not move then restart level from welcome menu. [M key is shortcut]
-- this will happpen when next scene is loaded from portal, and i need to debug that for now.
+
+# Warning:
+- Do not use git version, check releases and it's src.
 
 # Download:
+
 - check release part. you can download for android,windows,linux & web
 - for web you need to start http server at . dir of web 
+
 # **TODO**:
 - clearup levels & train AI for that level [ done ]
 - Create Gun Enemies

@@ -59,29 +59,33 @@ collide_with_areas = true
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 281.469, 0 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="CoinDetectoRAY4" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 249.672, -123.448 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="CoinDetectoRAY5" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 225.63, 99.9976 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="CoinDetectoRAY6" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 96.9367, 255.561 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="CoinDetectoRAY7" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
@@ -109,15 +113,17 @@ collide_with_areas = true
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 194 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="CoinDetectoRAY3" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, -194 )
-collision_mask = 14
+collision_mask = 4
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="BodyAreaDetectoRAY5" type="RayCast2D" parent="."]
 scale = Vector2( 4, 4 )

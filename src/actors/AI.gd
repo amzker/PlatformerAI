@@ -111,10 +111,10 @@ func sense() -> Array:
 		return senses
 
 func act(actions: Array) -> void:
-	if actions[0] > 0.6:
-		rightst = 1
-	elif actions[1] >0.6:
-		leftst = 1
+	if actions[0] > 0.4:
+		rightst = actions[0]
+	elif actions[1] > 0.4:
+		leftst = actions[1]
 	elif actions[2] > 0.6:
 		jumpp = true
 
