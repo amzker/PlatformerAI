@@ -126,3 +126,5 @@ func update_vis_menu_text(index: int) -> void:
 	"""Updates the current visibility text if a different visibility option is chosen.
 	"""
 	visibility_menu.text = "curr visibility: " + Params.visibility_options[index]
+
+

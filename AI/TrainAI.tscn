@@ -18,4 +18,14 @@ margin_top = 65.0834
 margin_bottom = 105.083
 text = "PAUSE"
 
+[node name="GUIb" type="CheckButton" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -121.0
+margin_top = 109.801
+margin_bottom = 149.801
+pressed = true
+text = "GUI"
+
 [connection signal="toggled" from="CanvasLayer/pause" to="." method="_on_pause_toggled"]
+[connection signal="toggled" from="CanvasLayer/GUIb" to="." method="_on_GUIb_toggled"]

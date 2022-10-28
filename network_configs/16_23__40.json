@@ -1,0 +1,125 @@
+{
+  "network_name": "16_23__40",
+  "activation_func": "tanh_activate",
+  "runtype_active": true,
+  "depth": 1,
+  "neurons": [
+    {
+      "id": 15,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 1,
+      "curve": 3,
+      "type": 1
+    },
+    {
+      "id": 2,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 3,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 4,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 5,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 16,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 6,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 7,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 8,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 9,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 17,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 10,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 11,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 12,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 13,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 14,
+      "curve": 3,
+      "type": 0
+    }
+  ],
+  "links": [
+    {
+      "from": 3,
+      "to": 16,
+      "weight": -0.239374
+    },
+    {
+      "from": 9,
+      "to": 17,
+      "weight": 0.603649
+    },
+    {
+      "from": 3,
+      "to": 15,
+      "weight": 0.460808
+    },
+    {
+      "from": 10,
+      "to": 15,
+      "weight": -0.249032
+    },
+    {
+      "from": 6,
+      "to": 15,
+      "weight": 1.648855
+    },
+    {
+      "from": 14,
+      "to": 16,
+      "weight": 0.017826
+    }
+  ]
+}

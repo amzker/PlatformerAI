@@ -1,8 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=7]
 [ext_resource path="res://NEAT_usability/gui/Window.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NEAT_usability/gui/species_list/SpeciesList.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="SpeciesList" instance=ExtResource( 8 )]
 margin_right = 528.0
@@ -98,6 +119,7 @@ margin_top = 84.0
 margin_right = 252.0
 margin_bottom = 234.0
 rect_min_size = Vector2( 0, 150 )
+custom_styles/bg = SubResource( 1 )
 
 [node name="MemberList" type="ItemList" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesDetail/ScrollContainer" index="0"]
 margin_right = 252.0
@@ -106,6 +128,7 @@ focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 7 )
+custom_styles/bg = SubResource( 2 )
 auto_height = true
 
 [node name="SpeciesOverview" type="VBoxContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator" index="1"]
@@ -138,4 +161,5 @@ focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 7 )
+custom_styles/bg = SubResource( 3 )
 auto_height = true

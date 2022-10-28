@@ -23,9 +23,9 @@ func _ready():
 	add_child(load(track_path).instance())
 	add_child(load(lvpath).instance())
 	add_child(ga)
-	#add_child(load("res://NEAT_usability/camera/ZoomPanCam.tscn").instance())
 	place_bodies(ga.get_curr_bodies())
 	fitness_threshold = 200
+	#$ZoomPanCam.position = $testlv/Start.position 
 	paused = false
 
 func end() -> void:
@@ -65,3 +65,7 @@ func _on_pause_toggled(button_pressed):
 	else:
 		paused = false
 	print(paused)
+
+
+func _on_GUIb_toggled(button_pressed):
+	Variables.GUI = button_pressed

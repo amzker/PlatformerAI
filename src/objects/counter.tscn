@@ -4,48 +4,47 @@
 [ext_resource path="res://src/objects/counter.gd" type="Script" id=3]
 [ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=4]
 
-[node name="counter" type="Label"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -8.0
-margin_top = 23.811
-margin_right = 8.0
-margin_bottom = 48.811
-custom_fonts/font = ExtResource( 4 )
-text = "0"
-valign = 1
+[node name="counter" type="Node"]
 script = ExtResource( 3 )
 
-[node name="CoinCount" type="Sprite" parent="."]
-position = Vector2( -80.4749, 15.6612 )
-scale = Vector2( 0.82429, 0.698783 )
-texture = ExtResource( 2 )
-
-[node name="CoinCount2" type="Sprite" parent="."]
-position = Vector2( 163.544, 15.9019 )
-scale = Vector2( 0.849221, 0.731949 )
-texture = ExtResource( 2 )
-
-[node name="player" type="Label" parent="."]
-margin_left = -215.878
-margin_top = 2.16306
-margin_right = -143.878
-margin_bottom = 28.1631
+[node name="AIcount" type="Label" parent="."]
+margin_left = 669.468
+margin_top = 26.6763
+margin_right = 685.468
+margin_bottom = 49.6763
 custom_fonts/font = ExtResource( 4 )
-text = "PLAYER"
+text = "0"
 
 [node name="AI" type="Label" parent="."]
-margin_left = 87.0
-margin_top = 4.0
-margin_right = 116.0
-margin_bottom = 29.0
+margin_left = 546.468
+margin_top = 24.6763
+margin_right = 575.468
+margin_bottom = 49.6763
 custom_fonts/font = ExtResource( 4 )
 text = "AI"
 
-[node name="AIcount" type="Label" parent="."]
-margin_left = 210.0
-margin_top = 6.0
-margin_right = 226.0
-margin_bottom = 29.0
+[node name="playercount" type="Label" parent="."]
+margin_left = 419.337
+margin_top = 25.3621
+margin_right = 491.337
+margin_bottom = 51.3621
 custom_fonts/font = ExtResource( 4 )
 text = "0"
+
+[node name="player" type="Label" parent="."]
+margin_left = 243.59
+margin_top = 22.8394
+margin_right = 315.59
+margin_bottom = 48.8394
+custom_fonts/font = ExtResource( 4 )
+text = "PLAYER"
+
+[node name="CoinCount2" type="Sprite" parent="."]
+position = Vector2( 623.012, 36.5782 )
+scale = Vector2( 0.545, 0.492 )
+texture = ExtResource( 2 )
+
+[node name="CoinCount" type="Sprite" parent="."]
+position = Vector2( 378.993, 36.3375 )
+scale = Vector2( 0.545, 0.492 )
+texture = ExtResource( 2 )

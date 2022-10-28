@@ -6,7 +6,7 @@ var AI_CONFIG = "level1"
 var TRMODE = str(false)
 var plcoin = 0
 var AIcoin = 0
-
+var GUI  = true
 func _on_repeat_toggled(button_pressed):
 	repeat = String(button_pressed).to_lower()
 	Variables.repeat = str(repeat)

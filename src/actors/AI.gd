@@ -77,7 +77,6 @@ func _physics_process(delta: float)-> void:
 	currentposi = self.position
 
 
-
 ####ALGORITHM  NEEDS
 
 func sense() -> Array:
@@ -125,4 +124,7 @@ func get_fitness() -> float:
 	if fitness == 0:
 		fitness = 1
 	return fitness
+
+
+
 

@@ -43,3 +43,9 @@ func open_genome_detail(genome: Genome) -> void:
 	var new_genome_detail = GenomeDetail.instance()
 	new_genome_detail.inspected_genome = genome
 	add_child(new_genome_detail)
+	
+func _physics_process(delta):
+	if  Variables.GUI == false:
+		self.hide()
+	else:
+		self.show()
