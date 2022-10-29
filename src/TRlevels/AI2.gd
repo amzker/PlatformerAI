@@ -44,10 +44,7 @@ func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2
 	out.y += gravity * get_physics_process_delta_time()
 	if direction.y == -1:
 		out.y = speed.y * direction.y
-		if Variables.TRMODE:
-			pass
-		else:
-			$jump.play()
+		$jump.play()
 	if is_jump_stopped:
 		out.y = 0 
 	return out
@@ -59,10 +56,7 @@ func stompvelo(linear_velocity: Vector2, impulse: float) -> Vector2:
 
 func _on_enhit_area_entered(area)-> void:
 	_velocity = stompvelo(_velocity,stomp)
-	if Variables.TRMODE:
-		pass
-	else:
-		$jump.play()
+	$jump.play()
 
 func _on_enhit_body_entered(body)-> void:
 	currentposi = self.position
@@ -83,76 +77,35 @@ func _physics_process(delta: float)-> void:
 	currentposi = self.position
 
 
+
 ####ALGORITHM  NEEDS
-var Carea = []
-func _on_CSENSOR_area_entered(area):
-	Carea.append(area.position.x)
-	Carea.append(area.position.y)
+var arsense = 0
 
-
-func _on_CSENSOR_area_exited(area):
-	Carea.clear()
+func _on_SENSOR_body_entered(body):
+	arsense = body.global_position.x
 
 func sense() -> Array:
-		var senses = []
-		var badrs = [$BodyAreaDetectoRAY1,$BodyAreaDetectoRAY2,$BodyAreaDetectoRAY3,$BodyAreaDetectoRAY4,$BodyAreaDetectoRAY5]
-		var cdrs = [$CoinDetectoRAY1,$CoinDetectoRAY2,$CoinDetectoRAY3,$CoinDetectoRAY4,$CoinDetectoRAY5,$CoinDetectoRAY6,$CoinDetectoRAY7]
-		"""
-		for cdr in cdrs:
-			#print(cdr)
-			cdr.force_raycast_update()
-			if cdr.is_colliding():
-				if cdr.collide_with_areas:
-					if "coin" in cdr.get_collider().name:
-						var collision = cdr.get_collision_point()
-						var distance = (collision - global_position).length()
-						senses.append(distance)
-					else:
-						senses.append(1)
-			else:
-				senses.append(1)
-				"""
-				
-		for badr in badrs:
-			#print(badr)
-			badr.force_raycast_update()
-			if badr.is_colliding():
-				var collision = badr.get_collision_point()
-				#var distance = (collision - global_position).length()
-				#senses.append(distance)
-				senses.append(collision.x)
-				senses.append(collision.y)
-			else:
-				senses.append(1)
-				senses.append(1)
-
-
-		senses.append(coinsbyai)
-		if Carea == []:
-			senses.append(1)
-			senses.append(1)
-		else:
-			senses.append(Carea[0])
-			senses.append(Carea[1])
-		#print(Carea)
-		#print(senses)
-		return senses
+	var senses = []
+	if arsense == 1 :
+		senses.append(1)
+	else:
+		senses.append(arsense)
+	senses.append(currentposi.x)
+	#senses.append(coinsbyai)
+	#print(senses)
+	return senses
 
 func act(actions: Array) -> void:
 	if actions[0] > 0.4:
 		rightst = actions[0]
 	elif actions[1] > 0.4:
 		leftst = actions[1]
-	elif actions[2] > 0.6:
-		jumpp = true
-
 
 func get_fitness() -> float:
 	fitness = coinsbyai
 	if fitness == 0:
 		fitness = 1
 	return fitness
-
 
 
 

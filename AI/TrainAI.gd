@@ -6,6 +6,11 @@ var time_step = 0.2
 var generation_step = 10
 var agent_body_path = "res://src/actors/AI.tscn"
 var track_path = "res://src/TRlevels/TRlevel1.tscn"
+#var agent_body_path = "res://src/TRlevels/AI2.tscn"
+#var track_path = "res://src/TRlevels/TR_Testing.tscn"
+#var ga = GeneticAlgorithm.new(2, 2, agent_body_path, true, "AI_params2")
+#var ga = GeneticAlgorithm.new(13, 3, agent_body_path, true, "AI_params")
+#var ga = GeneticAlgorithm.new(8, 3, agent_body_path, true, "AI_params")
 var ga = GeneticAlgorithm.new(13, 3, agent_body_path, true, "AI_params")
 var lvpath = "res://src/TRlevels/lvpaths/lv1path.tscn"
 var fitness_threshold = 0
@@ -24,9 +29,10 @@ func _ready():
 	add_child(load(lvpath).instance())
 	add_child(ga)
 	place_bodies(ga.get_curr_bodies())
-	fitness_threshold = 200
+	fitness_threshold = 500
 	$ZoomPanCam.position = $testlv/Start.position 
 	paused = false
+	Background_Music.stop()
 
 func end() -> void:
 	paused = true

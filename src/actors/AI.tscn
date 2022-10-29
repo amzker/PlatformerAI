@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/music/jump.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/images/player.png" type="Texture" id=2]
@@ -9,6 +9,9 @@ extents = Vector2( 49.25, 38 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48.4368, 34.6482 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 285.66
 
 [node name="AI" type="KinematicBody2D"]
 collision_layer = 16
@@ -59,7 +62,7 @@ collide_with_areas = true
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 281.469, 0 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -67,7 +70,7 @@ collide_with_bodies = false
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 249.672, -123.448 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -75,7 +78,7 @@ collide_with_bodies = false
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 225.63, 99.9976 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -83,7 +86,7 @@ collide_with_bodies = false
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 96.9367, 255.561 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -113,7 +116,7 @@ collide_with_areas = true
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, 194 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -121,7 +124,7 @@ collide_with_bodies = false
 scale = Vector2( 4, 4 )
 enabled = true
 cast_to = Vector2( 194, -194 )
-collision_mask = 4
+collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
 
@@ -142,6 +145,15 @@ self_modulate = Color( 0.972549, 0.913725, 0.0117647, 1 )
 position = Vector2( -2.28246, 6.52691 )
 shape = SubResource( 2 )
 
+[node name="CSENSOR" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CSENSOR"]
+shape = SubResource( 3 )
+
 [connection signal="area_entered" from="enhit" to="." method="_on_enhit_area_entered"]
 [connection signal="body_entered" from="enhit" to="." method="_on_enhit_body_entered"]
 [connection signal="area_entered" from="CoinDetectArea" to="." method="_on_CoinDetectArea_area_entered"]
+[connection signal="area_entered" from="CSENSOR" to="." method="_on_CSENSOR_area_entered"]
+[connection signal="area_exited" from="CSENSOR" to="." method="_on_CSENSOR_area_exited"]
