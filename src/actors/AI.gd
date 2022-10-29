@@ -84,20 +84,11 @@ func _physics_process(delta: float)-> void:
 
 
 ####ALGORITHM  NEEDS
-var Carea = []
-func _on_CSENSOR_area_entered(area):
-	Carea.append(area.position.x)
-	Carea.append(area.position.y)
-
-
-func _on_CSENSOR_area_exited(area):
-	Carea.clear()
-
 func sense() -> Array:
 		var senses = []
 		var badrs = [$BodyAreaDetectoRAY1,$BodyAreaDetectoRAY2,$BodyAreaDetectoRAY3,$BodyAreaDetectoRAY4,$BodyAreaDetectoRAY5]
 		var cdrs = [$CoinDetectoRAY1,$CoinDetectoRAY2,$CoinDetectoRAY3,$CoinDetectoRAY4,$CoinDetectoRAY5,$CoinDetectoRAY6,$CoinDetectoRAY7]
-		"""
+
 		for cdr in cdrs:
 			#print(cdr)
 			cdr.force_raycast_update()
@@ -111,30 +102,17 @@ func sense() -> Array:
 						senses.append(1)
 			else:
 				senses.append(1)
-				"""
 				
 		for badr in badrs:
 			#print(badr)
 			badr.force_raycast_update()
 			if badr.is_colliding():
 				var collision = badr.get_collision_point()
-				#var distance = (collision - global_position).length()
-				#senses.append(distance)
-				senses.append(collision.x)
-				senses.append(collision.y)
+				var distance = (collision - global_position).length()
+				senses.append(distance)
 			else:
 				senses.append(1)
-				senses.append(1)
-
-
 		senses.append(coinsbyai)
-		if Carea == []:
-			senses.append(1)
-			senses.append(1)
-		else:
-			senses.append(Carea[0])
-			senses.append(Carea[1])
-		#print(Carea)
 		#print(senses)
 		return senses
 
