@@ -4,7 +4,7 @@
 [ext_resource path="res://src/actors/enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 53.5, 12 )
+extents = Vector2( 54.6127, 12 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -31,7 +31,7 @@ position = Vector2( -1, -39 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
-position = Vector2( -1.5, -3 )
+position = Vector2( -0.387299, -3 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]

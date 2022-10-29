@@ -16,23 +16,18 @@ func _on_vsai_toggled(button_pressed):
 	Variables.vsai = str(vsai)
 
 func _on_OptionButton_item_selected(index):
-	if index == 0:
-		LEVEL = "res://src/levels/level1.tscn"
-		AI_CONFIG = "level1"
-		Variables.LEVEL = LEVEL
-		Variables.AI_CONFIG = AI_CONFIG
-	elif index == 1:
-		LEVEL = "res://src/levels/level2.tscn"
-		AI_CONFIG = "level2"
-		Variables.LEVEL = LEVEL
-		Variables.AI_CONFIG = AI_CONFIG
-	elif index == 2:
-		LEVEL = "res://src/levels/level3.tscn"
-		AI_CONFIG = "level3"
-		Variables.LEVEL = LEVEL
-		Variables.AI_CONFIG = AI_CONFIG
-
+	var op = $OptionButton.get_item_text(index)
+	LEVEL = str("res://src/levels/",op,".tscn")
+	Variables.LEVEL = LEVEL
+	if "testlv" in op:
+		vsai = "false"
+		Variables.vsai = vsai
+		#print("vsao: ", vsai)
+	Variables.AI_CONFIG = str(op)
+	#print(LEVEL)
+	
 func _on_playb_pressed():
+	#print(vsai)
 	if vsai == "true":
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 	elif vsai == "false":

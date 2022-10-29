@@ -27,8 +27,10 @@ func _ready():
 		#	print("at vsai true")
 			ENDRPOSI = get_node("/root/AIvsPlayer/testlv/ENDR").position
 		else:
-		#	print("at vsai false")
-			ENDRPOSI = get_node("/root/lvloader/testlv/ENDR").position 
+			if "testlv" in Variables.LEVEL:
+				pass
+			else:
+				ENDRPOSI = get_node("/root/lvloader/testlv/ENDR").position 
 	else:
 		print(Variables.TRMODE)
 		print("some real shit happened in assigning vRIbles")
