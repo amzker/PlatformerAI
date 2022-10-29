@@ -17,3 +17,7 @@ as name suggets you will be playing against AI
 - Fix stupid codes such as one in AI.gd [ done ]
 - let's use coins collected as fitness function and setup coins as path [ done ]
 - Level Generator and auto AI trainer 
+- gravity(point,reverse) 
+- randomly dropping enemies 
+- WAN & LAN 
+- AI vs AI (just need to do place_bodies and standalone.new())
