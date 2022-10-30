@@ -42,7 +42,9 @@ func create_server() -> void:
 func join_server() -> void:
 	client = NetworkedMultiplayerENet.new()
 	client.create_client(ip_address, DEFAULT_PORT)
+	print(client)
 	get_tree().set_network_peer(client)
+	print(client)
 	client_connection_timeout_timer.start()
 
 

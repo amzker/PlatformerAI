@@ -8,10 +8,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 49.25, 38 )
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 0, 1 )
 collision_mask = 25
 script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="Player" type="Sprite" parent="."]
 modulate = Color( 0.0980392, 1, 0.00392157, 1 )
@@ -48,12 +50,10 @@ align = 1
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
 visible = true
-
-[node name="Tween" type="Tween" parent="."]
+current = false
 
 [node name="Network_tick_rate" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+wait_time = 0.035
 autostart = true
 
 [connection signal="area_entered" from="enhit" to="." method="_on_enhit_area_entered"]

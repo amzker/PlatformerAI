@@ -2,6 +2,7 @@ extends Control
 
 onready var IpAddr := $Control/IpAddr
 var player = load(Variables.playerpath)
+#var player = load("res://src/UI/Player.tscn")
 
 var current_spawn_location_instance_number = 1
 var current_player_for_spawn_location_number = null
@@ -22,8 +23,8 @@ func _player_connected(id) -> void:
 
 func _player_disconnected(id) -> void:
 	print("Player " + str(id) + " has disconnected")
-	if PersistentNodes.has_node(str(id)):	
-		PersistentNodes.get_node(str(id)).queue_free()
+	if Persistent_nodes.has_node(str(id)):	
+		Persistent_nodes.get_node(str(id)).queue_free()
 
 func _connected_to_server() -> void:
 	# Only called on clients, not server.
@@ -48,11 +49,10 @@ func _on_StartGame_pressed():
 sync func switch_to_game() -> void:
 	# warning-ignore:RETURN_VALUE_DISCARDED
 	get_tree().change_scene("res://src/UI/lvloader.tscn")
+	#get_tree().change_scene("res://src/UI/World.tscn")
 
 func instance_player(id) -> void:
-	var player_instance = Global.instance_node(player, 
-		PersistentNodes
-	)
+	var player_instance = Global.instance_node(player, Persistent_nodes)
 	player_instance.name = str(id)
 	player_instance.set_network_master(id)
 	if current_spawn_location_instance_number > 6:

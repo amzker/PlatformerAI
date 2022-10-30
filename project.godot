@@ -93,7 +93,7 @@ Innovations="*res://NEAT_code/innovations.gd"
 Variables="*res://src/UI/variables.gd"
 Network="*res://src/UI/Network.gd"
 Global="*res://src/UI/Global.gd"
-PersistentNodes="*res://src/UI/Persistent_nodes.tscn"
+Persistent_nodes="*res://src/UI/Persistent_nodes.tscn"
 
 [display]
 
@@ -155,6 +155,10 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="coins"
 2d_physics/layer_4="world"
 2d_physics/layer_5="AI"
+
+[network]
+
+remote_fs/page_size=65537
 
 [physics]
 

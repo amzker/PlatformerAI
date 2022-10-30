@@ -1,8 +1,10 @@
 extends Actor
 export var stomp: = 1000.0
 var plname = Variables.plname
+
 onready var tween := $Tween
 onready var camera := $Camera2D
+
 puppet var puppet_position = Vector2(0, 0) setget puppet_position_set
 puppet var puppet_velocity = Vector2() setget puppet_velocity_set
 
@@ -26,6 +28,7 @@ func _ready():
 				camera.make_current()
 			$player_name.text = plname
 	else:
+		print("passed at player _ready")
 		pass
 	
 func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2, is_jump_stopped: bool) -> Vector2:
@@ -49,6 +52,7 @@ func _on_enhit_area_entered(area)-> void:
 	$jump.play()
 
 func _on_enhit_body_entered(body)-> void:
+	self.rpc("die")
 	if Variables.repeat == "true":
 		if Variables.vsai == "true":
 			Variables.AIcoin = 0
