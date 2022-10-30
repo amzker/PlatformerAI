@@ -11,6 +11,7 @@ var plname = "amzker"
 var playerpath = "res://src/actors/player.tscn"
 var serverip = ""
 var multp = false
+var IPORT  = 28960
 
 func _on_repeat_toggled(button_pressed):
 	repeat = String(button_pressed).to_lower()

@@ -14,6 +14,8 @@ func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_to_server")
 	$iplabel.text = Network.ip_address
 	Variables.serverip = Network.ip_address
+	$Control/port.placeholder_text = str("Default Port: ",Variables.IPORT)
+	$Control/IpAddr.placeholder_text = str("Defuat IP:", Variables.serverip)
 
 
 func _player_connected(id) -> void:
@@ -63,3 +65,16 @@ func instance_player(id) -> void:
 
 func _on_Name_text_changed(new_text):
 	Variables.plname = new_text
+
+
+func _on_port_text_changed(new_text):
+	Variables.IPORT = int(new_text)
+
+
+func _on_menubt_pressed():
+	get_tree().change_scene("res://src/UI/Menu.tscn")
+
+
+
+func _on_IpAddr_text_changed(new_text):
+	Network.ip_address = new_text

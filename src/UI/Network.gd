@@ -1,12 +1,12 @@
 extends Node
-
-const DEFAULT_PORT = 28960
+#28960
+var DEFAULT_PORT = Variables.IPORT
 const MAX_CLIENTS = 6
 
 var server = null
 var client = null
 
-var ip_address = ""
+var ip_address = Variables.serverip
 var client_connected_to_server = false
 
 onready var client_connection_timeout_timer = Timer.new()
@@ -41,6 +41,8 @@ func create_server() -> void:
 
 func join_server() -> void:
 	client = NetworkedMultiplayerENet.new()
+	if "http" in ip_address:
+		ip_address = IP.resolve_hostname(ip_address,IP.TYPE_IPV4)
 	client.create_client(ip_address, DEFAULT_PORT)
 	print(client)
 	get_tree().set_network_peer(client)
