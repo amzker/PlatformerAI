@@ -1,7 +1,7 @@
 extends Control
 
 onready var IpAddr := $Control/IpAddr
-var player = load("res://src/actors/player.tscn")
+var player = load(Variables.playerpath)
 
 var current_spawn_location_instance_number = 1
 var current_player_for_spawn_location_number = null

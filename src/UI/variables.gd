@@ -8,7 +8,9 @@ var plcoin = 0
 var AIcoin = 0
 var GUI  = true
 var plname = "amzker"
+var playerpath = "res://src/actors/player.tscn"
 var serverip = ""
+var multp = false
 
 func _on_repeat_toggled(button_pressed):
 	repeat = String(button_pressed).to_lower()
@@ -38,3 +40,5 @@ func _on_playb_pressed():
 
 func _on_multiplayer_pressed():
 	get_tree().change_scene("res://src/UI/Menu.tscn")
+	Variables.multp = true
+	

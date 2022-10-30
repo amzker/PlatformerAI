@@ -19,11 +19,14 @@ func puppet_position_set(new_value) -> void:
 	tween.start()
 
 func _ready():
-	yield(get_tree(), "idle_frame")
-	if get_tree().has_network_peer():
-		if is_network_master():
-			camera.make_current()
-	$player_name.text = plname
+	if Variables.multp:
+		yield(get_tree(), "idle_frame")
+		if get_tree().has_network_peer():
+			if is_network_master():
+				camera.make_current()
+			$player_name.text = plname
+	else:
+		pass
 	
 func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2, is_jump_stopped: bool) -> Vector2:
 	var out = linear_velocity
@@ -57,15 +60,21 @@ func _on_enhit_body_entered(body)-> void:
 		get_tree().change_scene("res://src/UI/WELCOME.tscn")
 
 func _process(_delta) -> void:
-	if get_tree().has_network_peer():
-		if is_network_master():
-			var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
-			var direction: = get_direction()
-			_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
-			_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
-		else:
-			if not tween.is_active():
-				move_and_slide(puppet_velocity * speed)
+	if Variables.multp:
+		if get_tree().has_network_peer():
+			if is_network_master():
+				var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
+				var direction: = get_direction()
+				_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
+				_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+			else:
+				if not tween.is_active():
+					move_and_slide(puppet_velocity * speed)
+	else:
+		var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
+		var direction: = get_direction()
+		_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
+		_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
 
 sync func die() -> void:

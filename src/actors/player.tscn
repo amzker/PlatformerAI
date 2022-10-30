@@ -47,11 +47,13 @@ custom_colors/font_color = Color( 0.25098, 0.933333, 0.0666667, 1 )
 align = 1
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
+visible = true
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Network_tick_rate" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 autostart = true
 
 [connection signal="area_entered" from="enhit" to="." method="_on_enhit_area_entered"]

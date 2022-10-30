@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -27,9 +26,6 @@ script = ExtResource( 5 )
 
 [node name="coin" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1350.86, 683.438 )
-
-[node name="player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 116.211, 703.219 )
 
 [node name="portal" parent="." instance=ExtResource( 11 )]
 position = Vector2( 9834.81, 515.86 )
