@@ -4,9 +4,7 @@ as name suggets you will be playing against AI
 
 
 # Latest commit: [INFO]
-- Added multiplayer basic structure 
-- Added new bugs such as host joins twice also at same time camera only shows one 
-- Will be fixed today and we will have proper multiplayer
+- Multiplayer added. i copied whole code from here: https://github.com/BitR13x/2DGodotMultiplayer.git
 - for portforwarding pagekite or ngrock both will be ok if your router dosent support it 
 
 # Warning:
