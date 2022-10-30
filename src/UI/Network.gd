@@ -41,8 +41,8 @@ func create_server() -> void:
 
 func join_server() -> void:
 	client = NetworkedMultiplayerENet.new()
-	if "http" in ip_address:
-		ip_address = IP.resolve_hostname(ip_address,IP.TYPE_IPV4)
+	ip_address = IP.resolve_hostname(ip_address,IP.TYPE_IPV4)
+	#print(ip_address)
 	client.create_client(ip_address, DEFAULT_PORT)
 	print(client)
 	get_tree().set_network_peer(client)
