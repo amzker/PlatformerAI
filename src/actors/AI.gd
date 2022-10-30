@@ -80,7 +80,7 @@ func _on_CoinDetectArea_area_entered(area):
 func _physics_process(delta: float)-> void:
 	var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
 	var direction: = get_direction(rightst,leftst,jumpp)
-	_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
+	_velocity = calc_velocity(_velocity,AIspeed,direction, is_jump_stopped)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 	currentposi = self.position
 

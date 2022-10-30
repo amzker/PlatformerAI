@@ -42,11 +42,14 @@ func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2
 	var out = linear_velocity
 	out.x = speed.x * direction.x
 	out.y += gravity * get_physics_process_delta_time()
+	
 	if direction.y == -1:
 		out.y = speed.y * direction.y
 		$jump.play()
+	
 	if is_jump_stopped:
 		out.y = 0 
+	
 	return out
 
 func stompvelo(linear_velocity: Vector2, impulse: float) -> Vector2:
@@ -58,8 +61,9 @@ func _on_enhit_area_entered(area)-> void:
 	_velocity = stompvelo(_velocity,stomp)
 	$jump.play()
 
-func _on_enhit_body_entered(body)-> void:
+func _on_enhit_body_entered(body)-> void: #this one connects to enemy 
 	currentposi = self.position
+	
 	if Variables.TRMODE == "True":
 		emit_signal("death")
 	else:
@@ -72,7 +76,7 @@ func _on_CoinDetectArea_area_entered(area):
 func _physics_process(delta: float)-> void:
 	var is_jump_stopped: = Input.is_action_just_released("jump") and _velocity.y < 0
 	var direction: = get_direction(rightst,leftst,jumpp)
-	_velocity = calc_velocity(_velocity,speed,direction, is_jump_stopped)
+	_velocity = calc_velocity(_velocity,AIspeed,direction, is_jump_stopped)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 	currentposi = self.position
 

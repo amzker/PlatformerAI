@@ -38,16 +38,22 @@ shape = SubResource( 1 )
 stream = ExtResource( 4 )
 area_mask = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="player_name" type="Label" parent="."]
 margin_left = -22.6923
 margin_top = -47.3868
 margin_right = 23.3077
 margin_bottom = -33.3868
 custom_colors/font_color = Color( 0.25098, 0.933333, 0.0666667, 1 )
-text = "PLAYER"
 align = 1
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Network_tick_rate" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_entered" from="enhit" to="." method="_on_enhit_area_entered"]
 [connection signal="body_entered" from="enhit" to="." method="_on_enhit_body_entered"]
+[connection signal="timeout" from="Network_tick_rate" to="." method="_on_Network_tick_rate_timeout"]

@@ -91,6 +91,9 @@ Params="*res://NEAT_code/params.gd"
 Utils="*res://NEAT_code/utils.gd"
 Innovations="*res://NEAT_code/innovations.gd"
 Variables="*res://src/UI/variables.gd"
+Network="*res://src/UI/Network.gd"
+Global="*res://src/UI/Global.gd"
+PersistentNodes="*res://src/UI/Persistent_nodes.tscn"
 
 [display]
 

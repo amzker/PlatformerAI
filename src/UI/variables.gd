@@ -7,9 +7,13 @@ var TRMODE = str(false)
 var plcoin = 0
 var AIcoin = 0
 var GUI  = true
+var plname = "amzker"
+var serverip = ""
+
 func _on_repeat_toggled(button_pressed):
 	repeat = String(button_pressed).to_lower()
 	Variables.repeat = str(repeat)
+	Background_Music.stop()
 
 func _on_vsai_toggled(button_pressed):
 	vsai = String(button_pressed).to_lower()
@@ -22,20 +26,15 @@ func _on_OptionButton_item_selected(index):
 	if "testlv" in op:
 		vsai = "false"
 		Variables.vsai = vsai
-		#print("vsao: ", vsai)
 	Variables.AI_CONFIG = str(op)
-	#print(LEVEL)
+
 	
 func _on_playb_pressed():
-	#print(vsai)
 	if vsai == "true":
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 	elif vsai == "false":
 		get_tree().change_scene("res://src/UI/lvloader.tscn")
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		_on_playb_pressed()
 
-
-	
+func _on_multiplayer_pressed():
+	get_tree().change_scene("res://src/UI/Menu.tscn")
