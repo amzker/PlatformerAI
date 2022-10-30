@@ -3,6 +3,12 @@
 as name suggets you will be playing against AI 
 
 
+# Latest commit: [INFO]
+- Added multiplayer basic structure 
+- Added new bugs such as host joins twice also at same time camera only shows one 
+- Will be fixed today and we will have proper multiplayer
+- for portforwarding pagekite or ngrock both will be ok if your router dosent support it 
+
 # Warning:
 - Do not use git version, check releases and it's src.
 
