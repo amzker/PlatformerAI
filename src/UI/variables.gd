@@ -27,16 +27,14 @@ func _on_OptionButton_item_selected(index):
 	Variables.LEVEL = LEVEL
 	Variables.AI_CONFIG = str(op)
 	if "testlv" or "level4" in op:
-		print("making it false")
+		#print("making it false")
 		vsai = "false"
 		Variables.vsai = vsai 
 
 	
 func _on_playb_pressed():
-	print(vsai, " before")
-	print(op)
-
-	print(vsai)
+	#print(op)
+	#print(vsai)
 	if vsai == "true":
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 	elif vsai == "false":

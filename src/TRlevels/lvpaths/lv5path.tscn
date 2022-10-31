@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=1]
+
+[node name="lv5pathnode" type="Node"]
+
+[node name="coin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1350.86, 683.438 )
+
+[node name="coin2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1774, 664 )
+
+[node name="coin3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1979, 664 )
+
+[node name="coin4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2383, 683 )
+
+[node name="coin5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2825, 536 )
+
+[node name="coin6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3253, 726 )
+
+[node name="coin7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3933, 450 )
+
+[node name="coin8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4490, 450 )
+
+[node name="coin9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4823, 455 )
+
+[node name="coin10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4162, 455 )
+
+[node name="coin11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5503, 693 )
+
+[node name="coin12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5884, 703 )
+
+[node name="coin13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6184, 727 )

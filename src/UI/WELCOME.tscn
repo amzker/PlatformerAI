@@ -79,7 +79,7 @@ margin_right = 249.0
 margin_bottom = 211.0
 custom_fonts/font = ExtResource( 6 )
 text = "level1"
-items = [ "level1", null, false, 0, null, "level2", null, false, 1, null, "level3", null, false, 2, null, "testlv", null, false, 3, null, "level4", null, false, 4, null ]
+items = [ "level1", null, false, 0, null, "level2", null, false, 1, null, "level3", null, false, 2, null, "testlv", null, false, 3, null, "level4", null, false, 4, null, "level5", null, false, 5, null ]
 selected = 0
 
 [node name="multiplayer" type="Button" parent="."]
