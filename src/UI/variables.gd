@@ -26,7 +26,7 @@ func _on_OptionButton_item_selected(index):
 	var op = $OptionButton.get_item_text(index)
 	LEVEL = str("res://src/levels/",op,".tscn")
 	Variables.LEVEL = LEVEL
-	if "testlv" in op:
+	if "testlv"  in op:
 		vsai = "false"
 		Variables.vsai = vsai
 	Variables.AI_CONFIG = str(op)

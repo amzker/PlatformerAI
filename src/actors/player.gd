@@ -28,7 +28,8 @@ func _ready():
 				camera.make_current()
 			$player_name.text = plname
 	else:
-		print("passed at player _ready")
+		camera.make_current()
+		#print("passed at player _ready")
 		pass
 	
 func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2, is_jump_stopped: bool) -> Vector2:
