@@ -2,6 +2,9 @@
 
 as name suggets you will be playing against AI 
 
+# MAIN TODO:
+- Now is the time to improve code quality
+ 
 
 # Latest commit: [INFO]
 - Multiplayer added. i copied whole code from here: https://github.com/BitR13x/2DGodotMultiplayer.git
