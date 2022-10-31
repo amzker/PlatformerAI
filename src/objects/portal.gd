@@ -30,7 +30,7 @@ func teleport()->void:
 	anima.play("fade_in")
 	yield(anima, "animation_finished")
 	var numi = String(Variables.LEVEL).to_int()
-	if numi < 3:
+	if numi < 4:
 		var next_scene = str("res://src/levels/level",numi+1,".tscn")
 		Variables.LEVEL = next_scene
 		Variables.plcoin = 0

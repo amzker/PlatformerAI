@@ -19,6 +19,7 @@ func _ready():
 		if "testlv" in Variables.LEVEL:
 			pass
 		else:
+			#print("adding player")
 			pl = load(pl).instance()
 			add_child(pl)
 
