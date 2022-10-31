@@ -7,6 +7,8 @@ as name suggets you will be playing against AI
 - Multiplayer added. i copied whole code from here: https://github.com/BitR13x/2DGodotMultiplayer.git
 - for portforwarding pagekite or ngrock both will be ok if your router dosent support it.
 
+for WAN you will need to do UDP port forwarding
+
 # Warning:
 - Do not use git version, check releases and it's src.
 
