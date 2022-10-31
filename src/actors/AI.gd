@@ -98,7 +98,7 @@ func sense() -> Array:
 				if cdr.collide_with_areas:
 					if "coin" in cdr.get_collider().name:
 						var collision = cdr.get_collision_point()
-						var distance = (collision - global_position).length()
+						var distance = (collision - global_position).length() #i should probably give x and y both and instead of 7 coin sensor, make it 3 area2D node and get area enter body.global_position.x,y
 						senses.append(distance)
 					else:
 						senses.append(1)

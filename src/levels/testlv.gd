@@ -1,5 +1,5 @@
 extends Node2D
-
+var playerh
 func _ready():
 	if OS.get_name() == "Android":
 		pass
@@ -8,6 +8,8 @@ func _ready():
 	else:
 		get_node("UI/Virtual joystick").visible = false
 		get_node("UI/Virtual joystick2").visible = false
+	playerh = $player
+
 
 
 
@@ -22,7 +24,6 @@ func _on_RestartB_pressed():
 	elif Variables.vsai == "false":
 		get_tree().change_scene("res://src/UI/lvloader.tscn")
 
-
 func wait(time):
 	var t = Timer.new()
 	t.set_wait_time(time)
@@ -33,18 +34,18 @@ func wait(time):
 
 
 func _on_reverse_G_body_entered(body):
-		$player.gravity = -900
+		playerh.gravity = -900
 	#	
 
 func _on_portal_body_exited(body):
-	$player.gravity = -20
+	playerh.gravity = -20
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("gravityup"):
-		$player.gravity += Input.get_action_strength("ui_up") * 500
+		playerh.gravity += Input.get_action_strength("ui_up") * 500
 	elif Input.is_action_just_pressed("gravitydown"):
-		$player.gravity -= Input.get_action_strength("gravitydown") * 500
-	$background/Label.text = str("Gravity : ", $player.gravity)
+		playerh.gravity -= Input.get_action_strength("gravitydown") * 500
+	$background/Label.text = str("Gravity : ", playerh.gravity)
 	
 
 

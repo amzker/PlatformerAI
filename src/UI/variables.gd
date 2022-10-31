@@ -12,27 +12,26 @@ var playerpath = "res://src/actors/player.tscn"
 var serverip = ""
 var multp = false
 var IPORT  = 28960
-
+var op 
 func _on_repeat_toggled(button_pressed):
 	repeat = String(button_pressed).to_lower()
 	Variables.repeat = str(repeat)
-	Background_Music.stop()
 
 func _on_vsai_toggled(button_pressed):
 	vsai = String(button_pressed).to_lower()
 	Variables.vsai = str(vsai)
 
 func _on_OptionButton_item_selected(index):
-	var op = $OptionButton.get_item_text(index)
+	op = $OptionButton.get_item_text(index)
 	LEVEL = str("res://src/levels/",op,".tscn")
 	Variables.LEVEL = LEVEL
-	if "testlv"  in op:
-		vsai = "false"
-		Variables.vsai = vsai
 	Variables.AI_CONFIG = str(op)
 
 	
 func _on_playb_pressed():
+	if op == "testlv" or "level4":
+		vsai = "false"
+		Variables.vsai = vsai 
 	if vsai == "true":
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 	elif vsai == "false":
@@ -43,3 +42,17 @@ func _on_multiplayer_pressed():
 	get_tree().change_scene("res://src/UI/Menu.tscn")
 	Variables.multp = true
 	
+
+
+func _on_LineEdit_text_entered(new_text):
+	Variables.plname = new_text
+
+
+func _on_music_toggled(button_pressed):
+	if button_pressed:
+		if Background_Music.playing:
+			pass
+		else:
+			Background_Music.play()
+	else:
+		Background_Music.stop()

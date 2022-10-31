@@ -11,13 +11,16 @@ func _ready():
 	add_child(level)
 	if get_tree().is_network_server():
 		setup_players_positions()
-	
-	
+
 	if Variables.multp:
-		print("not addding platyer")
+		pass
+		#print("not addding player, becuase network will add it")
 	else:
-		pl = load(pl).instance()
-		add_child(pl)
+		if "testlv" in Variables.LEVEL:
+			pass
+		else:
+			pl = load(pl).instance()
+			add_child(pl)
 
 func setup_players_positions() -> void:
 	for player in Persistent_nodes.get_children():

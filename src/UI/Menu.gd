@@ -2,7 +2,6 @@ extends Control
 
 onready var IpAddr := $Control/IpAddr
 var player = load(Variables.playerpath)
-#var player = load("res://src/UI/Player.tscn")
 
 var current_spawn_location_instance_number = 1
 var current_player_for_spawn_location_number = null
@@ -78,3 +77,7 @@ func _on_menubt_pressed():
 
 func _on_IpAddr_text_changed(new_text):
 	Network.ip_address = new_text
+
+
+func _on_HOMESCREEB_pressed():
+	get_tree().change_scene("res://src/UI/WELCOME.tscn")

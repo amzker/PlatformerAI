@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://NEAT_usability/fonts/dynamics/roboto-regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/tiles/maintileset.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/objects/coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://joystick/virtual_joystick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/objects/counter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/actors/player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -261,7 +262,6 @@ mass = 0.204082
 can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D9"]
-visible = false
 shape = SubResource( 4 )
 
 [node name="RigidBody2D10" type="RigidBody2D" parent="."]
@@ -283,6 +283,9 @@ can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D11"]
 shape = SubResource( 4 )
+
+[node name="player" parent="." instance=ExtResource( 10 )]
+position = Vector2( 118.794, 713.764 )
 
 [connection signal="body_exited" from="portal" to="." method="_on_portal_body_exited"]
 [connection signal="body_entered" from="reverse_G" to="." method="_on_reverse_G_body_entered"]
