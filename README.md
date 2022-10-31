@@ -25,8 +25,10 @@ python2.7 pagekite.py 192.168.0.3:20201 my2dgametest.pagekite.me:8080
 -**client/your friend:** go to multiplayer page and enter host kitename and in port hostkiteport ex: 
 in ip i will put:
 ```
-http://my2dgametest.pagekite.me
-in port 8080
+my2dgametest.pagekite.me
+and in port
+8080
+
 ```
 - hit the join button 
 
