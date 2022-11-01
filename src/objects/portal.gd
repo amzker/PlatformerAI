@@ -37,7 +37,7 @@ func teleport()->void:
 	#print("cr level: ", Variables.LEVEL)
 	var numi = String(Variables.LEVEL).to_int()
 	#print("Cr LEVEL", Variables.LEVEL)
-	if numi < 5:
+	if numi < 6:
 		var next_scene = str("res://src/levels/level",numi+1,".tscn")
 		Variables.LEVEL = next_scene
 		Variables.plcoin = 0

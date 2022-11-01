@@ -37,11 +37,15 @@ func _on_OptionButton_item_selected(index):
 	
 		
 func _on_playb_pressed():
-	if op == "testlv": #or did not worked so idk
+	if op == "testlv": #or did not worked so idk plz fix this one (0!  0!)
 		#print("making it false")
 		vsai = false
 		Variables.vsai = vsai 
 	elif op == "level4":
+		#print("making it false")
+		vsai = false
+		Variables.vsai = vsai 
+	elif op == "level6":
 		#print("making it false")
 		vsai = false
 		Variables.vsai = vsai 
