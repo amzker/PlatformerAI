@@ -155,6 +155,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_3="coins"
 2d_physics/layer_4="world"
 2d_physics/layer_5="AI"
+2d_physics/layer_6="Gzero"
 
 [network]
 

@@ -25,3 +25,13 @@ func _on_RestartB_pressed():
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
 	else:
 		get_tree().change_scene("res://src/UI/lvloader.tscn")
+
+
+
+func _on_zeroG_body_entered(body):
+	if body.has_method("change_gravity"):
+		body.change_gravity(-100)
+
+func _on_zeroG_body_exited(body):
+	if body.has_method("change_gravity"):
+		body.change_gravity(900)

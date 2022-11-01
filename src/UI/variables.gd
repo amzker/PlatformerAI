@@ -33,7 +33,7 @@ func _on_OptionButton_item_selected(index):
 	LEVEL = str("res://src/levels/",op,".tscn")
 	Variables.LEVEL = LEVEL
 	Variables.AI_CONFIG = str(op)
-	print(op)
+	#print(op)
 	
 		
 func _on_playb_pressed():

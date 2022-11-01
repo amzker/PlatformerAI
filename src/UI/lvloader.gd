@@ -15,11 +15,8 @@ func _ready():
 	if Variables.multp:
 		pass
 	else:
-		if "testlv" in Variables.LEVEL:
-			pass
-		else:
-			pl = load(pl).instance()
-			add_child(pl)
+		pl = load(pl).instance()
+		add_child(pl)
 
 func setup_players_positions() -> void:
 	for player in Persistent_nodes.get_children():

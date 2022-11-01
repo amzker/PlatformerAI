@@ -29,7 +29,11 @@ func _ready():
 			$player_name.text = plname
 	else:
 		camera.make_current()
+
+func change_gravity(Gvalue):
+	gravity = Gvalue
 	
+
 func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2, is_jump_stopped: bool) -> Vector2:
 	var out = linear_velocity
 	out.x = speed.x * direction.x
