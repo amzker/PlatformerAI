@@ -14,12 +14,10 @@ func _ready():
 
 	if Variables.multp:
 		pass
-		#print("not addding player, becuase network will add it")
 	else:
 		if "testlv" in Variables.LEVEL:
 			pass
 		else:
-			#print("adding player")
 			pl = load(pl).instance()
 			add_child(pl)
 

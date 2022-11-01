@@ -6,9 +6,9 @@ extends Area2D
 func _on_coin_body_entered(body):
 	$gotcoin.play()
 #TRMODE LEFT LIKED THIS FOR FUTURE HELP 
-	if Variables.TRMODE == "True":
+	if Variables.TRMODE:
 		queue_free()
-	elif Variables.TRMODE == "False":
+	else:
 		queue_free()
 	if body.name == "player":
 		Variables.plcoin = Variables.plcoin + 1

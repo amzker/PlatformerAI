@@ -16,24 +16,15 @@ var fitness = 0
 var coinsbyai = 0
 
 func _ready():
-	if Variables.TRMODE == "True":
-		#print("At trmode true")
+	if Variables.TRMODE:
 		startposition = get_node("/root/trainer/testlv/Start").position #testlv/Start.position #testlv is main node name of all levels and will be availible when ai added to it as childS
 		ENDRPOSI =  get_node("/root/trainer/testlv/ENDR").position
-	elif Variables.TRMODE == "False":
-		#print("At trmode false")
+	else:
 		currentposi = self.position
-		if Variables.vsai == "true":
-		#	print("at vsai true")
+		if Variables.vsai:
 			ENDRPOSI = get_node("/root/AIvsPlayer/testlv/ENDR").position
 		else:
-		#	print("at vsai false")
 			ENDRPOSI = get_node("/root/lvloader/testlv/ENDR").position 
-	else:
-		print(Variables.TRMODE)
-		print("some real shit happened in assigning vRIbles")
-		breakpoint 
-	#print("endposi after", ENDRPOSI)
 
 func get_direction(rightst,leftst,jumpp) -> Vector2:
 	return Vector2(rightst - leftst , -1 if jumpp and is_on_floor() else 1)
@@ -64,7 +55,7 @@ func _on_enhit_area_entered(area)-> void:
 func _on_enhit_body_entered(body)-> void: #this one connects to enemy 
 	currentposi = self.position
 	
-	if Variables.TRMODE == "True":
+	if Variables.TRMODE:
 		emit_signal("death")
 	else:
 		pass

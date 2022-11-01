@@ -18,28 +18,33 @@ func _on_portal_body_entered(body):
 		if first == "player":
 			$won.play()
 		elif first == "AI":
-			if Variables.repeat == "true":
-				if Variables.vsai == "true":
+
+			if Variables.repeat:
+				if Variables.vsai:
 					get_tree().change_scene("res://AI/AIvsPlayer.tscn")
-				elif Variables.vsai == "false":
+				else:
 					get_tree().change_scene("res://src/UI/lvloader.tscn")
+
 			else:
 				get_tree().change_scene("res://src/UI/WELCOME.tscn")
+
+func _on_won_finished():
+	teleport()
 
 func teleport()->void:
 	anima.play("fade_in")
 	yield(anima, "animation_finished")
+	#print("cr level: ", Variables.LEVEL)
 	var numi = String(Variables.LEVEL).to_int()
-	if numi < 4:
+	#print("Cr LEVEL", Variables.LEVEL)
+	if numi < 5:
 		var next_scene = str("res://src/levels/level",numi+1,".tscn")
 		Variables.LEVEL = next_scene
 		Variables.plcoin = 0
 		Variables.AIcoin = 0 
-		if Variables.vsai == "true":
+		if Variables.vsai:
 			get_tree().change_scene("res://AI/AIvsPlayer.tscn")
-		elif Variables.vsai == "false":
+		else:
 			get_tree().change_scene("res://src/UI/lvloader.tscn")
 	else:
 		get_tree().change_scene("res://src/UI/WELCOME.tscn")
-func _on_won_finished():
-	teleport()

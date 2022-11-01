@@ -16,6 +16,7 @@ func update() -> void:
 	
 func _ready():
 	level = load(level).instance()
+	#print(level)
 	player = load(player).instance()
 	add_child(level)
 	AI = load(AI).instance()

@@ -29,8 +29,6 @@ func _ready():
 			$player_name.text = plname
 	else:
 		camera.make_current()
-		#print("passed at player _ready")
-		pass
 	
 func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2, is_jump_stopped: bool) -> Vector2:
 	var out = linear_velocity
@@ -54,13 +52,14 @@ func _on_enhit_area_entered(area)-> void:
 
 func _on_enhit_body_entered(body)-> void:
 	self.rpc("die")
-	if Variables.repeat == "true":
-		if Variables.vsai == "true":
+	if Variables.repeat:
+		if Variables.vsai:
 			Variables.AIcoin = 0
 			Variables.plcoin = 0
 			get_tree().change_scene("res://AI/AIvsPlayer.tscn")
-		elif Variables.vsai == "false":
+		else:
 			get_tree().change_scene("res://src/UI/lvloader.tscn")
+	
 	else:
 		get_tree().change_scene("res://src/UI/WELCOME.tscn")
 

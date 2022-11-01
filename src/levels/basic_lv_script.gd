@@ -2,7 +2,6 @@ extends Node2D
 
 
 func _ready():
-	Variables.LEVEL = "res://src/levels/level2.tscn"
 	var os_name = OS.get_name()
 	if os_name == "Android":
 		$"UI/Virtual joystick".show()
@@ -15,13 +14,14 @@ func _ready():
 		$"UI/Virtual joystick2".hide()
 
 
+
 func _on_MENUB_pressed():
 	get_tree().change_scene("res://src/UI/WELCOME.tscn")
 
 
 
 func _on_RestartB_pressed():
-	if Variables.vsai == "true":
+	if Variables.vsai:
 		get_tree().change_scene("res://AI/AIvsPlayer.tscn")
-	elif Variables.vsai == "false":
+	else:
 		get_tree().change_scene("res://src/UI/lvloader.tscn")
