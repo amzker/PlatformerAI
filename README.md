@@ -37,7 +37,6 @@ for WAN you will need to do UDP port forwarding
 ```
 .
 ├── AI
-│   ├── AI_params.cfg
 │   ├── AIvsPlayer.gd
 │   ├── AIvsPlayer.tscn
 │   ├── TrainAI.gd
