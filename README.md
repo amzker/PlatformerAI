@@ -226,14 +226,6 @@ for WAN you will need to do UDP port forwarding
     │   ├── objectsSTART.tres
     │   ├── portal.gd
     │   └── portal.tscn
-    ├── that_guy_net
-    │   ├── Enemy.gd
-    │   ├── Enemy.tscn
-    │   ├── Player.gd
-    │   ├── Player.tscn
-    │   ├── project.godot
-    │   ├── World.gd
-    │   └── World.tscn
     ├── TRlevels
     │   ├── AI2.gd
     │   ├── AI2.tscn
@@ -259,5 +251,5 @@ for WAN you will need to do UDP port forwarding
         ├── variables.gd
         └── WELCOME.tscn
 
-31 directories, 190 files
+30 directories, 182 files
 ```
