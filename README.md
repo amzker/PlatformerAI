@@ -7,6 +7,8 @@ as name suggets you will be playing against AI
  
 
 # Latest commit: [INFO]
+- added level 5.
+- lv 4 and 5 are best for multiplayer. 
 - updated code and made it better
 
 # credits 
