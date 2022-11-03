@@ -13,6 +13,7 @@ var serverip = ""
 var multp = false
 var IPORT  = 28960
 var op 
+var coinx = 0
 var nonAiLevels = ["testlv", "level4"]
 func _on_repeat_toggled(button_pressed):
 	if button_pressed:

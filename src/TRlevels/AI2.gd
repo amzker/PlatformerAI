@@ -16,15 +16,7 @@ var fitness = 0
 var coinsbyai = 0
 
 func _ready():
-	if Variables.TRMODE:
-		startposition = get_node("/root/trainer/testlv/Start").position #testlv/Start.position #testlv is main node name of all levels and will be availible when ai added to it as childS
-		ENDRPOSI =  get_node("/root/trainer/testlv/ENDR").position
-	else:
-		currentposi = self.position
-		if Variables.vsai:
-			ENDRPOSI = get_node("/root/AIvsPlayer/testlv/ENDR").position
-		else:
-			ENDRPOSI = get_node("/root/lvloader/testlv/ENDR").position 
+	currentposi = self.position
 
 func get_direction(rightst,leftst,jumpp) -> Vector2:
 	return Vector2(rightst - leftst , -1 if jumpp and is_on_floor() else 1)
@@ -36,7 +28,10 @@ func calc_velocity(linear_velocity: Vector2 ,speed : Vector2, direction: Vector2
 	
 	if direction.y == -1:
 		out.y = speed.y * direction.y
-		$jump.play()
+		if Variables.TRMODE:
+			pass
+		else:
+			$jump.play()
 	
 	if is_jump_stopped:
 		out.y = 0 
@@ -50,7 +45,10 @@ func stompvelo(linear_velocity: Vector2, impulse: float) -> Vector2:
 
 func _on_enhit_area_entered(area)-> void:
 	_velocity = stompvelo(_velocity,stomp)
-	$jump.play()
+	if Variables.TRMODE:
+		pass
+	else:
+		$jump.play()
 
 func _on_enhit_body_entered(body)-> void: #this one connects to enemy 
 	currentposi = self.position
@@ -72,22 +70,26 @@ func _physics_process(delta: float)-> void:
 	currentposi = self.position
 
 
-
-####ALGORITHM  NEEDS
-var arsense = 0
-
-func _on_SENSOR_body_entered(body):
-	arsense = body.global_position.x
-
 func sense() -> Array:
+	if self.is_on_wall():
+		coinsbyai = coinsbyai - 1
 	var senses = []
-	if arsense == 1 :
-		senses.append(1)
-	else:
-		senses.append(arsense)
+	"""
+	var rays = [$detectoRay1,$detectoRay2,$detectoRay3,$detectoRay4] #$detectoRay5,$detectoRay6,$detectoRay7]
+	for ray in rays:
+		ray.force_raycast_update()
+		if ray.is_colliding():
+			var obposition = ray.get_collision_point()
+			senses.append(obposition.x)
+			senses.append(obposition.y)
+		else:
+			senses.append(1)
+			senses.append(1)
+	"""
+	senses.append(Variables.coinx)
+	senses.append(coinsbyai)
 	senses.append(currentposi.x)
-	#senses.append(coinsbyai)
-	#print(senses)
+	senses.append(currentposi.y)
 	return senses
 
 func act(actions: Array) -> void:
@@ -95,10 +97,12 @@ func act(actions: Array) -> void:
 		rightst = actions[0]
 	elif actions[1] > 0.4:
 		leftst = actions[1]
+	#elif actions[2] > 0.4:
+	#	jumpp = true
 
 func get_fitness() -> float:
 	fitness = coinsbyai
-	if fitness == 0:
+	if fitness <= 0:
 		fitness = 1
 	return fitness
 

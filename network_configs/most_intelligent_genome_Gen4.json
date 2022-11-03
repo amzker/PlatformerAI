@@ -1,0 +1,65 @@
+{
+  "network_name": "most_intelligent_genome_Gen4",
+  "activation_func": "sigm_activate",
+  "runtype_active": true,
+  "depth": 1,
+  "neurons": [
+    {
+      "id": 1,
+      "curve": 3,
+      "type": 1
+    },
+    {
+      "id": 5,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 2,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 6,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 3,
+      "curve": 3,
+      "type": 0
+    },
+    {
+      "id": 7,
+      "curve": 3,
+      "type": 3
+    },
+    {
+      "id": 4,
+      "curve": 3,
+      "type": 0
+    }
+  ],
+  "links": [
+    {
+      "from": 4,
+      "to": 6,
+      "weight": 0.711445
+    },
+    {
+      "from": 2,
+      "to": 6,
+      "weight": -0.380675
+    },
+    {
+      "from": 4,
+      "to": 7,
+      "weight": -0.43289
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "weight": -0.314911
+    }
+  ]
+}
