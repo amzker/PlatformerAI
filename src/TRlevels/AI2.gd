@@ -89,7 +89,7 @@ func sense() -> Array:
 	senses.append(Variables.coinx)
 	senses.append(coinsbyai)
 	senses.append(currentposi.x)
-	senses.append(currentposi.y)
+	#senses.append(currentposi.y)
 	return senses
 
 func act(actions: Array) -> void:

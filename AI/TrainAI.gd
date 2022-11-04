@@ -15,7 +15,8 @@ var generation_step = 10
 var agent_body_path = "res://src/TRlevels/AI2.tscn"
 var track_path = "res://src/TRlevels/TR_Testing.tscn"
 #var ga = GeneticAlgorithm.new(17, 2, agent_body_path, true, "AI_params2")
-var ga = GeneticAlgorithm.new(12, 2, agent_body_path, true, "AI_params2")
+#var ga = GeneticAlgorithm.new(12, 2, agent_body_path, true, "AI_params2")
+var ga = GeneticAlgorithm.new(3, 2, agent_body_path, true, "AI_params2")
 var fitness_threshold = 0
 var paused = true
 
